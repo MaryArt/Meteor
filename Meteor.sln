@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{DC51C878-3CFE-4826-8A03-37D8EE49A957}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dal", "Dal\Dal.csproj", "{A36D827F-025E-4C9D-A484-941C349C7B05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{67D48F34-8898-48BB-B41B-D58CCC4C8383}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC51C878-3CFE-4826-8A03-37D8EE49A957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC51C878-3CFE-4826-8A03-37D8EE49A957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC51C878-3CFE-4826-8A03-37D8EE49A957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC51C878-3CFE-4826-8A03-37D8EE49A957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36D827F-025E-4C9D-A484-941C349C7B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36D827F-025E-4C9D-A484-941C349C7B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36D827F-025E-4C9D-A484-941C349C7B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36D827F-025E-4C9D-A484-941C349C7B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67D48F34-8898-48BB-B41B-D58CCC4C8383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D48F34-8898-48BB-B41B-D58CCC4C8383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D48F34-8898-48BB-B41B-D58CCC4C8383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D48F34-8898-48BB-B41B-D58CCC4C8383}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

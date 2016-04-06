@@ -1,0 +1,12 @@
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\Dal.dll.config
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\Dal.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\Dal.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\EntityFramework.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\EntityFramework.SqlServer.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\Model.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\Model.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\EntityFramework.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\EntityFramework.SqlServer.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.pdb
