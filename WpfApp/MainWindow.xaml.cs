@@ -24,7 +24,17 @@ namespace WpfApp
             
             using (Dal.MyContext db = new Dal.MyContext())
             {
-                datagrid.ItemsSource = db.Meteors.ToList();
+                Meteors.ItemsSource = db.Meteors.ToList();
+                Expeditions.ItemsSource = db.Expeditions.ToList();
+                Days.ItemsSource = db.Days.ToList();
+                Intervals.ItemsSource = db.Intervals.ToList();
+                People.ItemsSource = db.People.ToList();
+                Groups.ItemsSource = db.Groups.ToList();
+                Group_Person.ItemsSource = db.Group_Person.ToList();
+                Magnitudes.ItemsSource = db.Magnitudes.ToList();
+                Coordinates.ItemsSource = db.EquatorialCoordinates.ToList();
+                States.ItemsSource = db.States.ToList();
+
             }
         }
 

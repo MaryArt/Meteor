@@ -31,9 +31,11 @@ namespace Model
 
         public virtual ICollection<Meteor> Meteors { get; set; }
 
-    
-    //Day
-    //Group
+        public virtual ICollection<State> States { get; set; }
 
-}
+
+        //Day
+        //Group
+
+    }
 }

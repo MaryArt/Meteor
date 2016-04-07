@@ -16,7 +16,7 @@ namespace Model
         [Required]
         public DateTime Time { get; set; }
         
-        public string Length { get; set; }
+        public int Length { get; set; }
 
         public double Duration { get; set; }
 

@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Database" Category="Database" Bounds="-194.391369201995,-289.707834998044,461.765556938021,308.198624533654" Group="Expanded" Label="Dal.MyContext.sdf" UseManualLocation="True" />
+    <Node Id="Days" Category="Table" Bounds="-29.7843177698366,-83.1239166361241,65.42,25" Group="Collapsed" Label="Days" UseManualLocation="True" />
+    <Node Id="Days_Date" Category="Field" Bounds="5.5073935683414,-67.6505073850268,50,25.96" Description="datetime" Label="Date" UseManualLocation="True" />
+    <Node Id="Days_Expedition_Id" Category="Field Foreign" Bounds="-74.4612464316586,-11.7124437050267,90.9133333333334,25.96" Description="int" Label="Expedition_Id" UseManualLocation="True" />
+    <Node Id="Days_Id" Category="Field Primary" Bounds="-74.4612464316586,-67.6505073850268,50,25.96" Description="int" Label="Id" UseManualLocation="True" />
+    <Node Id="EquatorialCoordinates" Category="Table" Bounds="-174.30497530908,-249.796357775358,157.193333333333,25" Group="Collapsed" Label="EquatorialCoordinates" />
+    <Node Id="EquatorialCoordinates_Declension" Category="Field" Bounds="27.9939055907722,-78.4191869657089,0,0" Description="float" Label="Declension" UseManualLocation="True" />
+    <Node Id="EquatorialCoordinates_HourAngle" Category="Field" Bounds="27.9939055907722,-78.4191869657089,0,0" Description="float" Label="HourAngle" UseManualLocation="True" />
+    <Node Id="EquatorialCoordinates_Id" Category="Field Primary" Bounds="27.9939055907722,-78.4191869657089,0,0" Description="int" Label="Id" UseManualLocation="True" />
+    <Node Id="EquatorialCoordinates_Meteor_Id" Category="Field Foreign" Bounds="27.9939055907722,-78.4191869657089,0,0" Description="int" Label="Meteor_Id" UseManualLocation="True" />
+    <Node Id="Expeditions" Category="Table" Bounds="-62.4304310136001,-26.5093179643906,100.766666666667,25" Group="Collapsed" Label="Expeditions" />
+    <Node Id="Expeditions_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="Expeditions_Latitude" Category="Field" Description="float" Label="Latitude" />
+    <Node Id="Expeditions_Mission" Category="Field Optional" Description="nvarchar(4000)" Label="Mission" />
+    <Node Id="Expeditions_Name" Category="Field Optional" Description="nvarchar(4000)" Label="Name" />
+    <Node Id="Group_Person" Category="Table" Bounds="133.470678085811,-194.796357388158,113.9,25" Group="Collapsed" Label="Group_Person" />
+    <Node Id="Group_Person_Group_Id" Category="Field Foreign" Description="int" Label="Group_Id" />
+    <Node Id="Group_Person_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="Group_Person_Person_Id" Category="Field Foreign" Description="int" Label="Person_Id" />
+    <Node Id="Group_Person_Role" Category="Field Optional" Description="nvarchar(4000)" Label="Role" />
+    <Node Id="Groups" Category="Table" Bounds="76.5296755562987,-84.7075924980443,78.3733333333334,25" Group="Collapsed" Label="Groups" />
+    <Node Id="Groups_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="Groups_Name" Category="Field" Description="nvarchar(4000)" Label="Name" />
+    <Node Id="Intervals" Category="Table" Bounds="-23.2728061001031,-139.707592498044,84.3533333333334,25" Group="Collapsed" Label="Intervals" />
+    <Node Id="Intervals_Clouds" Category="Field" Description="int" Label="Clouds" />
+    <Node Id="Intervals_Day_Id" Category="Field Foreign" Description="int" Label="Day_Id" />
+    <Node Id="Intervals_Group_Id" Category="Field Foreign" Description="int" Label="Group_Id" />
+    <Node Id="Intervals_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="Intervals_Moon" Category="Field" Description="float" Label="Moon" />
+    <Node Id="Intervals_Number" Category="Field" Description="int" Label="Number" />
+    <Node Id="Intervals_RadiantHeight" Category="Field" Description="int" Label="RadiantHeight" />
+    <Node Id="Intervals_TimeBegin" Category="Field" Description="datetime" Label="TimeBegin" />
+    <Node Id="Intervals_TimeEnd" Category="Field" Description="datetime" Label="TimeEnd" />
+    <Node Id="Magnitudes" Category="Table" Bounds="12.8020641313388,-249.707592498044,102.94,25" Group="Collapsed" Label="Magnitudes" />
+    <Node Id="Magnitudes_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="Magnitudes_MagnitudeValue" Category="Field" Description="float" Label="MagnitudeValue" />
+    <Node Id="Magnitudes_Meteor_Id" Category="Field Foreign" Description="int" Label="Meteor_Id" />
+    <Node Id="Magnitudes_Person_Id" Category="Field Foreign" Description="int" Label="Person_Id" />
+    <Node Id="Meteors" Category="Table" Bounds="-81.8160122639734,-194.707592498044,83.6933333333333,25" Group="Collapsed" Label="Meteors" />
+    <Node Id="Meteors_Color" Category="Field" Description="int" Label="Color" />
+    <Node Id="Meteors_Contour" Category="Field" Description="int" Label="Contour" />
+    <Node Id="Meteors_Duration" Category="Field" Description="float" Label="Duration" />
+    <Node Id="Meteors_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="Meteors_Interval_Id" Category="Field Foreign" Description="int" Label="Interval_Id" />
+    <Node Id="Meteors_Length" Category="Field" Description="int" Label="Length" />
+    <Node Id="Meteors_Notes" Category="Field Optional" Description="nvarchar(4000)" Label="Notes" />
+    <Node Id="Meteors_Number" Category="Field" Description="int" Label="Number" />
+    <Node Id="Meteors_P" Category="Field" Description="float" Label="P" />
+    <Node Id="Meteors_PPrime" Category="Field" Description="float" Label="PPrime" />
+    <Node Id="Meteors_Source" Category="Field Optional" Description="nvarchar(4000)" Label="Source" />
+    <Node Id="Meteors_Speed" Category="Field" Description="int" Label="Speed" />
+    <Node Id="Meteors_Time" Category="Field" Description="datetime" Label="Time" />
+    <Node Id="Meteors_Trace" Category="Field" Description="float" Label="Trace" />
+    <Node Id="Meteors_Zenit" Category="Field" Description="int" Label="Zenit" />
+    <Node Id="People" Category="Table" Bounds="91.0806272332303,-139.707592498044,75.8199999999999,25" Group="Collapsed" Label="People" />
+    <Node Id="People_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="People_MiddleName" Category="Field Optional" Description="nvarchar(4000)" Label="MiddleName" />
+    <Node Id="People_Name" Category="Field" Description="nvarchar(4000)" Label="Name" />
+    <Node Id="People_Surname" Category="Field Optional" Description="nvarchar(4000)" Label="Surname" />
+    <Node Id="States" Category="Table" Bounds="31.8774210693598,-194.707592498044,71.5966666666667,25" Group="Collapsed" Label="States" />
+    <Node Id="States_Center" Category="Field Optional" Description="nvarchar(4000)" Label="Center" />
+    <Node Id="States_Direction" Category="Field" Description="float" Label="Direction" />
+    <Node Id="States_EndLimitMagnitude" Category="Field" Description="float" Label="EndLimitMagnitude" />
+    <Node Id="States_EndMood" Category="Field" Description="int" Label="EndMood" />
+    <Node Id="States_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="States_Interval_Id" Category="Field Foreign" Description="int" Label="Interval_Id" />
+    <Node Id="States_Person_Id" Category="Field Foreign" Description="int" Label="Person_Id" />
+    <Node Id="States_StartLimitMagnitude" Category="Field" Description="float" Label="StartLimitMagnitude" />
+    <Node Id="States_StartMood" Category="Field" Description="int" Label="StartMood" />
+  </Nodes>
+  <Links>
+    <Link Source="Database" Target="Days" Category="Contains" />
+    <Link Source="Database" Target="EquatorialCoordinates" Category="Contains" />
+    <Link Source="Database" Target="Expeditions" Category="Contains" />
+    <Link Source="Database" Target="Group_Person" Category="Contains" />
+    <Link Source="Database" Target="Groups" Category="Contains" />
+    <Link Source="Database" Target="Intervals" Category="Contains" />
+    <Link Source="Database" Target="Magnitudes" Category="Contains" />
+    <Link Source="Database" Target="Meteors" Category="Contains" />
+    <Link Source="Database" Target="People" Category="Contains" />
+    <Link Source="Database" Target="States" Category="Contains" />
+    <Link Source="Days" Target="Days_Date" Category="Contains" />
+    <Link Source="Days" Target="Days_Expedition_Id" Category="Contains" />
+    <Link Source="Days" Target="Days_Id" Category="Contains" />
+    <Link Source="Days_Expedition_Id" Target="Expeditions_Id" Category="Foreign Key" Label="FK_dbo.Days_dbo.Expeditions_Expedition_Id" />
+    <Link Source="EquatorialCoordinates" Target="EquatorialCoordinates_Declension" Category="Contains" />
+    <Link Source="EquatorialCoordinates" Target="EquatorialCoordinates_HourAngle" Category="Contains" />
+    <Link Source="EquatorialCoordinates" Target="EquatorialCoordinates_Id" Category="Contains" />
+    <Link Source="EquatorialCoordinates" Target="EquatorialCoordinates_Meteor_Id" Category="Contains" />
+    <Link Source="EquatorialCoordinates_Meteor_Id" Target="Meteors_Id" Category="Foreign Key" Label="FK_dbo.EquatorialCoordinates_dbo.Meteors_Meteor_Id" />
+    <Link Source="Expeditions" Target="Expeditions_Id" Category="Contains" />
+    <Link Source="Expeditions" Target="Expeditions_Latitude" Category="Contains" />
+    <Link Source="Expeditions" Target="Expeditions_Mission" Category="Contains" />
+    <Link Source="Expeditions" Target="Expeditions_Name" Category="Contains" />
+    <Link Source="Group_Person" Target="Group_Person_Group_Id" Category="Contains" />
+    <Link Source="Group_Person" Target="Group_Person_Id" Category="Contains" />
+    <Link Source="Group_Person" Target="Group_Person_Person_Id" Category="Contains" />
+    <Link Source="Group_Person" Target="Group_Person_Role" Category="Contains" />
+    <Link Source="Group_Person_Group_Id" Target="Groups_Id" Category="Foreign Key" Label="FK_dbo.Group_Person_dbo.Groups_Group_Id" />
+    <Link Source="Group_Person_Person_Id" Target="People_Id" Category="Foreign Key" Label="FK_dbo.Group_Person_dbo.People_Person_Id" />
+    <Link Source="Groups" Target="Groups_Id" Category="Contains" />
+    <Link Source="Groups" Target="Groups_Name" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_Clouds" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_Day_Id" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_Group_Id" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_Id" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_Moon" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_Number" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_RadiantHeight" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_TimeBegin" Category="Contains" />
+    <Link Source="Intervals" Target="Intervals_TimeEnd" Category="Contains" />
+    <Link Source="Intervals_Day_Id" Target="Days_Id" Category="Foreign Key" Label="FK_dbo.Intervals_dbo.Days_Day_Id" />
+    <Link Source="Intervals_Group_Id" Target="Groups_Id" Category="Foreign Key" Label="FK_dbo.Intervals_dbo.Groups_Group_Id" />
+    <Link Source="Magnitudes" Target="Magnitudes_Id" Category="Contains" />
+    <Link Source="Magnitudes" Target="Magnitudes_MagnitudeValue" Category="Contains" />
+    <Link Source="Magnitudes" Target="Magnitudes_Meteor_Id" Category="Contains" />
+    <Link Source="Magnitudes" Target="Magnitudes_Person_Id" Category="Contains" />
+    <Link Source="Magnitudes_Meteor_Id" Target="Meteors_Id" Category="Foreign Key" Label="FK_dbo.Magnitudes_dbo.Meteors_Meteor_Id" />
+    <Link Source="Magnitudes_Person_Id" Target="People_Id" Category="Foreign Key" Label="FK_dbo.Magnitudes_dbo.People_Person_Id" />
+    <Link Source="Meteors" Target="Meteors_Color" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Contour" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Duration" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Id" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Interval_Id" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Length" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Notes" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Number" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_P" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_PPrime" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Source" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Speed" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Time" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Trace" Category="Contains" />
+    <Link Source="Meteors" Target="Meteors_Zenit" Category="Contains" />
+    <Link Source="Meteors_Interval_Id" Target="Intervals_Id" Category="Foreign Key" Label="FK_dbo.Meteors_dbo.Intervals_Interval_Id" />
+    <Link Source="People" Target="People_Id" Category="Contains" />
+    <Link Source="People" Target="People_MiddleName" Category="Contains" />
+    <Link Source="People" Target="People_Name" Category="Contains" />
+    <Link Source="People" Target="People_Surname" Category="Contains" />
+    <Link Source="States" Target="States_Center" Category="Contains" />
+    <Link Source="States" Target="States_Direction" Category="Contains" />
+    <Link Source="States" Target="States_EndLimitMagnitude" Category="Contains" />
+    <Link Source="States" Target="States_EndMood" Category="Contains" />
+    <Link Source="States" Target="States_Id" Category="Contains" />
+    <Link Source="States" Target="States_Interval_Id" Category="Contains" />
+    <Link Source="States" Target="States_Person_Id" Category="Contains" />
+    <Link Source="States" Target="States_StartLimitMagnitude" Category="Contains" />
+    <Link Source="States" Target="States_StartMood" Category="Contains" />
+    <Link Source="States_Interval_Id" Target="Intervals_Id" Category="Foreign Key" Label="FK_dbo.States_dbo.Intervals_Interval_Id" />
+    <Link Source="States_Person_Id" Target="People_Id" Category="Foreign Key" Label="FK_dbo.States_dbo.People_Person_Id" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Database" />
+    <Category Id="Field" />
+    <Category Id="Field Foreign" />
+    <Category Id="Field Optional" />
+    <Category Id="Field Primary" />
+    <Category Id="Foreign Key" />
+    <Category Id="Table" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Description" Label="Description" Description="Description" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>
