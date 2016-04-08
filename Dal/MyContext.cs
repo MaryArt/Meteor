@@ -35,6 +35,7 @@ namespace Dal
         protected override void Seed(MyContext context)
         {
             var expedition = context.Expeditions.Add(new Expedition() { Name = "Персеиды", Mission = "ММП", Latitude = 46.67 });
+            var expedition2 = context.Expeditions.Add(new Expedition() { Name = "Ореониды", Mission = "ММП", Latitude = 46.67 });
             var day = context.Days.Add(new Day() { Date = DateTime.UtcNow, Expedition = expedition });
             var group = context.Groups.Add(new Group() { Name = "first" });
             var interval = context.Intervals.Add(new Interval()
