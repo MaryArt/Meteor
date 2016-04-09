@@ -28,49 +28,8 @@ namespace WpfApp
             using (Dal.MyContext db = new Dal.MyContext())
             {
 
-                ////цикл по Entities, например, Expedition 
-                //foreach (var expedition in db.Expeditions)
-                //{
-                //    var expander = new Expander();
-                //    expander.Header = expedition.Name;
+                StPExpeditions.Children.Add(CreateExpanders(db.Expeditions, "Name"));
 
-                //    //составляем внутренности expander 
-                //    // он содержит:
-                //    // имя свойства Entity (из DataAnnotations.DisplayAttribute)
-                //    // значение этого свойства
-                //    // и так несколько раз
-
-                //    var stackPanel = new StackPanel();
-                //    //перебираем все свойства класса нашей Entity
-                //    foreach (var prop in typeof(Expedition).GetProperties())
-                //    {
-                //        //получаем все аттрибуты
-                //        object[] attrs = prop.GetCustomAttributes(false);
-                //        Label label = new Label();
-                //        foreach (Attribute attr in attrs)
-                //        {
-                //            if (attr is DisplayableAttribute)
-                //            {
-                //                string name = (attr is DisplayAttribute) ? ((DisplayAttribute)attr).GetName() : prop.Name;
-                //                label = new Label() { Content = name + ": " + prop.GetValue(expedition) };
-                //            }
-                //        }
-                //        stackPanel.Children.Add(label);
-                //    }
-                //    expander.Content = stackPanel;
-                //    RootGrid.Children.Add(expander);
-                //}
-
-                RootGrid.Children.Add(CreateExpanders(db.Expeditions, "Name"));
-                //Expander dynamicExpander = new Expander();
-                //dynamicExpander.Header = "Dynamic Expander";
-                //dynamicExpander.HorizontalAlignment = HorizontalAlignment.Left;
-                //dynamicExpander.Background = new SolidColorBrush(Colors.Lavender);
-                //dynamicExpander.Width = 250;
-                //dynamicExpander.IsExpanded = false;
-                //dynamicExpander.Content = "This is a dynamic expander";
-
-                //RootGrid.Children.Add(dynamicExpander);
 
                 //Meteors.ItemsSource = db.Meteors.ToList();
                 //Expeditions.ItemsSource = db.Expeditions.ToList();
@@ -90,8 +49,11 @@ namespace WpfApp
         {
             var stackPanelMain = new StackPanel();
             //цикл по Entities, например, Expedition 
+            int i = 0;
             foreach (var entity in entities)
             {
+                var radioButton = new RadioButton();
+                radioButton.Checked += radioButton_Checked;
                 var expander = new Expander();
                 expander.Header = entity.GetType().GetProperty(propertyNameForHeader).GetValue(entity);
 
@@ -101,7 +63,7 @@ namespace WpfApp
                 // значение этого свойства
                 // и так несколько раз
 
-                var stackPanel = new StackPanel();
+                var stackPanel = new StackPanel() {  Margin = new Thickness() {  Left = 15, Top=15, Right=1, Bottom=1 } };
                 //перебираем все свойства класса нашей Entity
                 foreach (var prop in typeof(Expedition).GetProperties())
                 {
@@ -119,11 +81,17 @@ namespace WpfApp
                     stackPanel.Children.Add(label);
                 }
                 expander.Content = stackPanel;
-                stackPanelMain.Children.Add(expander);
+                radioButton.Content = expander;
+                stackPanelMain.Children.Add(radioButton);
+                i++;
             }
             return stackPanelMain;
         }
 
-        
+        private void radioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            //надо по выбранному checkbox понять у какого элемента он был установлен, например, у какой експедиции. 
+            //по этой експедиции найти все дни и вывести их таким же образом в StackPanel - StPDays
+        }
     }
 }

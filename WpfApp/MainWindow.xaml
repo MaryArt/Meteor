@@ -6,9 +6,16 @@
         xmlns:local="clr-namespace:WpfApp"
         xmlns:Dal="clr-namespace:Dal;assembly=Dal" x:Class="WpfApp.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1246.761" Width="911.961">
+        Title="MainWindow" Height="398.761" Width="556.961">
 
     <Grid x:Name="RootGrid" Margin="0,0,2,3">
+
+        <StackPanel x:Name="StPExpeditions"  HorizontalAlignment="Left" Height="205" Margin="10,10,0,0" VerticalAlignment="Top" Width="152" >
+            <Label x:Name="label" Content="Експедиции:"/>
+        </StackPanel>
+        <StackPanel x:Name="StPDays" HorizontalAlignment="Left" Height="205" Margin="167,10,0,0" VerticalAlignment="Top" Width="152" >
+            <Label  Content="Дни:"/>
+        </StackPanel>
 
         <!--<DataGrid  x:Name="Meteors" Height="88" Margin="10,859,10,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <DataGrid  x:Name="Expeditions"  HorizontalAlignment="Left" Height="75" Margin="10,496,0,0" VerticalAlignment="Top" Width="416"/>
@@ -30,7 +37,7 @@
         <Label x:Name="label_Copy6" Content="Meteors" HorizontalAlignment="Left" Margin="10,828,0,0" VerticalAlignment="Top" Width="121"/>
         <Label x:Name="label_Copy7" Content="Magnitudes" HorizontalAlignment="Left" Margin="440,951,0,0" VerticalAlignment="Top" Width="121" Grid.ColumnSpan="2"/>
         <Label x:Name="label_Copy8" Content="Coordinates" HorizontalAlignment="Left" Margin="10,952,0,0" VerticalAlignment="Top" Width="121"/>-->
-        <StackPanel HorizontalAlignment="Left"  Margin="111,0,0,0" Width="118">
+        <!--<StackPanel HorizontalAlignment="Left"  Margin="111,0,0,0" Width="118">
 
             <Expander x:Name="Expander1"  Header="Expander Header">
                 <StackPanel Margin="15,3,1,1">
@@ -47,8 +54,8 @@
             <Expander IsExpanded="True" Header="Expanded to start with">
                 <TextBlock TextWrapping="Wrap">Expanded using the IsExpanded property</TextBlock>
             </Expander>
-        </StackPanel>
-        <StackPanel Margin="15,3,1,1">
+        </StackPanel>-->
+        <!--<StackPanel Margin="15,3,1,1">
             <Grid HorizontalAlignment="Left" Height="116" Margin="411,179,0,0" VerticalAlignment="Top" Width="188">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" MinWidth="75"></ColumnDefinition>
@@ -57,7 +64,7 @@
                 <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label2" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
             </Grid>
-        </StackPanel>
+        </StackPanel>-->
 
     </Grid>
 </Window>

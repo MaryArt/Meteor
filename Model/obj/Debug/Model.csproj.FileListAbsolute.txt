@@ -2,4 +2,3 @@ G:\WORK\METEORS\Diplom\prog\Meteor\Model\bin\Debug\Model.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Model\bin\Debug\Model.pdb
 G:\WORK\METEORS\Diplom\prog\Meteor\Model\obj\Debug\Model.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Model\obj\Debug\Model.pdb
-G:\WORK\METEORS\Diplom\prog\Meteor\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
