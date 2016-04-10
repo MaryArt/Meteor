@@ -4,10 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
+        xmlns:model="clr-namespace:Model;assembly=Model"
         xmlns:Dal="clr-namespace:Dal;assembly=Dal" x:Class="WpfApp.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="398.761" Width="556.961">
-
+    <Window.DataContext>
+        <model:ClassTest />
+    </Window.DataContext>
     <Grid x:Name="RootGrid" Margin="0,0,2,3">
 
         <StackPanel x:Name="StPExpeditions"  HorizontalAlignment="Left" Height="205" Margin="10,10,0,0" VerticalAlignment="Top" Width="152" >
@@ -65,6 +68,35 @@
                 <Label x:Name="label2" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
             </Grid>
         </StackPanel>-->
+        
+        <local:UserControl1 />
+        <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Expander Header="{Binding Name}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Mission:" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Latitude:" />
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Mission}" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Latitude}" />
+
+                            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Hello" 
+                                    Command="{Binding Path=DataContext.BestCommandEver, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}" />
+                        </Grid>
+                    </Expander>
+                </DataTemplate>
+            </ListBox.ItemTemplate> 
+        </ListBox>
     </Grid>
 </Window>
