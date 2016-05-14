@@ -1,0 +1,15 @@
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Bl.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Bl.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Dal.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Model.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\EntityFramework.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Microsoft.Practices.Prism.Mvvm.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Dal.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Model.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\EntityFramework.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Microsoft.Practices.Prism.Mvvm.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\obj\Debug\Bl.csprojResolveAssemblyReference.cache
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\obj\Debug\Bl.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\obj\Debug\Bl.pdb

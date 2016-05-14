@@ -36,8 +36,10 @@ namespace Model
         
         public string Notes { get; set; }
         
-        public double Trace { get; set; }
-        
+        public double TraceLength { get; set; }
+        public double TraceDuration { get; set; }
+        public double TraceContour { get; set; }
+
         public string Source { get; set; }
         
         public Interval Interval { get; set; } 

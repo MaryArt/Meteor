@@ -19,5 +19,7 @@ namespace Model
 
         public string Role { get; set; }
 
+        public string Program { get; set; }
+
     }
 }

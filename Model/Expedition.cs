@@ -30,12 +30,10 @@ namespace Model
             }
         }
 
-        [Displayable(true)]
-        [Display(Name = "Цель")]
+        
         public string Mission { get; set; }
 
-        [Displayable(true)]
-        [Display(Name = "Широта")]
+        
         public double Latitude { get; set; }
 
         

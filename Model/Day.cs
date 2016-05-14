@@ -19,5 +19,7 @@ namespace Model
         public Expedition Expedition { get; set; }
 
         public virtual ICollection<Interval> Intervals { get; set; }
+
+
     }
 }

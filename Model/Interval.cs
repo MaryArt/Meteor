@@ -19,9 +19,11 @@ namespace Model
 
         public DateTime TimeEnd { get; set; }
 
-        public int Clouds { get; set; }
+        public double Clouds { get; set; }
 
         public double Moon { get; set; }
+
+        public int MoonHeight { get; set; }
 
         public int RadiantHeight { get; set; }
 
@@ -32,10 +34,6 @@ namespace Model
         public virtual ICollection<Meteor> Meteors { get; set; }
 
         public virtual ICollection<State> States { get; set; }
-
-
-        //Day
-        //Group
 
     }
 }

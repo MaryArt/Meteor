@@ -20,7 +20,8 @@ namespace Dal
 
         public IEnumerable<Meteor> GetAll()
         {
-            return _myContext.Meteors;
+            var meteors = _myContext.Meteors;
+            return meteors;
         }
 
         public Meteor Get(int id)
