@@ -7,14 +7,14 @@ using Model;
 
 namespace Dal
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork /*: IUnitOfWork*/
     {
-        private MyContext _myContext;
+        private MeteorDB _myContext;
         private MeteorRepository _meteorRepository;
 
         public UnitOfWork()
         {
-            _myContext = new MyContext();
+            _myContext = new MeteorDB();
         }
 
         public IRepository<Meteor> Meteors

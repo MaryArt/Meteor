@@ -13,3 +13,4 @@ G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Microsoft.Practices.Prism.Shared
 G:\WORK\METEORS\Diplom\prog\Meteor\Bl\obj\Debug\Bl.csprojResolveAssemblyReference.cache
 G:\WORK\METEORS\Diplom\prog\Meteor\Bl\obj\Debug\Bl.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Bl\obj\Debug\Bl.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Bl.dll.config
