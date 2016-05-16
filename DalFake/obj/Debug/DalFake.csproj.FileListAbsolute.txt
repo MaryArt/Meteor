@@ -1,0 +1,7 @@
+G:\WORK\METEORS\Diplom\prog\Meteor\DalFake\bin\Debug\DalFake.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\DalFake\bin\Debug\DalFake.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\DalFake\bin\Debug\Model.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\DalFake\bin\Debug\Model.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\DalFake\obj\Debug\DalFake.csprojResolveAssemblyReference.cache
+G:\WORK\METEORS\Diplom\prog\Meteor\DalFake\obj\Debug\DalFake.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\DalFake\obj\Debug\DalFake.pdb

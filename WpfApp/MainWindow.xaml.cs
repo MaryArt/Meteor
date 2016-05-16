@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Model;
 using Bl;
 using System.ComponentModel.DataAnnotations;
+using WpfApp.ViewModel;
+using AutoMapper;
 
 namespace WpfApp
 {
@@ -22,19 +24,24 @@ namespace WpfApp
     public partial class MainWindow : Window
     {
         private MeteorService _meteorService;
+        private ExpeditionService _expeditionService;
 
         public MainWindow()
         {
             InitializeComponent();
 
+            AutoMapperConfig.RegisterMappings();
+
             _meteorService = new MeteorService();
-            var expiditions = new List<Expedition>()
-                {
-                    new Expedition() {Name = "111", Latitude =  12},
-                    new Expedition { Name = "222", Latitude = 13}
-                };
+            _expeditionService = new ExpeditionService();
+
+            var expiditions = _expeditionService.GetAllExpeditions();
             var meteors = _meteorService.GetAllMeteors().ToList();
-            var mainModel = new MainViewModel() { Meteors = meteors, Expiditions = expiditions };
+
+            var meteorsViewModel = Mapper.Map<List<MeteorViewModel>>(meteors);
+            var expeditionsViewModel = Mapper.Map<List<ExpeditionViewModel>>(expiditions);
+
+            var mainModel = new MainViewModel() { Meteors = meteorsViewModel, Expiditions = expeditionsViewModel };
             this.DataContext = mainModel;
         }
 

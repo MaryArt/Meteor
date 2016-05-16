@@ -11,9 +11,9 @@ namespace Dal
 
     public class MeteorRepository : IRepository<Meteor>
     {
-        private MeteorDB _myContext;
+        private MyContext _myContext;
 
-        public MeteorRepository(MeteorDB context)
+        public MeteorRepository(MyContext context)
         {
             _myContext = context;
         }

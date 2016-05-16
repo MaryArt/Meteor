@@ -9,12 +9,12 @@ namespace Dal
 {
     public class UnitOfWork /*: IUnitOfWork*/
     {
-        private MeteorDB _myContext;
+        private MyContext _myContext;
         private MeteorRepository _meteorRepository;
 
         public UnitOfWork()
         {
-            _myContext = new MeteorDB();
+            _myContext = new MyContext();
         }
 
         public IRepository<Meteor> Meteors

@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         x:Class="WpfApp.MainWindow"
-        xmlns:model="clr-namespace:Model;assembly=Model"
+        xmlns:model="clr-namespace:WpfApp.ViewModel;assembly=WpfApp"
+        xmlns:viewmodel ="clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="398.761" Width="556.961">
     <Window.DataContext>
-        <model:MainViewModel/>
+        <viewmodel:MainViewModel/>
     </Window.DataContext>
     <Grid x:Name="RootGrid"  >
 

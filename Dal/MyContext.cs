@@ -8,7 +8,7 @@ using Model;
 
 namespace Dal
 {
-    public class MyContext:DbContext
+    public class MyContext :DbContext
     {
         public DbSet<Meteor> Meteors { get; set; }
         public DbSet<Interval> Intervals { get; set; }
@@ -23,12 +23,22 @@ namespace Dal
         public DbSet<Magnitude> Magnitudes { get; set; }
         public DbSet<EquatorialCoordinate> EquatorialCoordinates { get; set; }
 
-        public MyContext() : base("Meteor.Dal.MyContext")
+        //public MyContext() : base("Meteor.Dal.MyContext")
+        //{
+        //    //Database.SetInitializer<MyContext>(new DbInitializer());
+        //    //using (MyContext db = new MyContext())
+        //    //    db.Database.Initialize(true);
+        //}
+
+        static MyContext() 
         {
-            //Database.SetInitializer<MyContext>(new DbInitializer());
-            //using (MyContext db = new MyContext())
-            //    db.Database.Initialize(true);
+            // ROLA - This is a hack to ensure that Entity Framework SQL Provider is copied across to the output folder.
+            // As it is installed in the GAC, Copy Local does not work. It is required for probing.
+            // Fixed "Provider not loaded" error
+            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
+
+
     }
     //class DbInitializer : System.Data.Entity.CreateDatabaseIfNotExists<MyContext>
     //{
