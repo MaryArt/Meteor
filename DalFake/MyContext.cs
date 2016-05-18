@@ -52,6 +52,25 @@ namespace DalFake
                 RadiantHeight = 75,
             });
 
+            
+
+            this.People.Add(new Person() { Name = "Иван", Surname = "Иванов", MiddleName = "Иванович" });
+            this.People.Add(new Person() { Name = "Петр", Surname = "Петров", MiddleName = "Петрович" });
+            this.Group_Person.Add(new Group_Person() { Group = Groups.First(), Person = People.Find(p => p.Name == "Иван"), Role = "Наблюдатель" });
+            this.Group_Person.Add(new Group_Person() { Group = Groups.First(), Person = People.Find(p => p.Name=="Петр"), Role = "Наблюдатель" });
+            this.States.Add(new State()
+            {
+                Person = People.First(),
+                Interval = Intervals.First(),
+                StartLimitMagnitude = 5.5,
+                StartMood = 5,
+                Direction = 6,
+                Center = "Лебедь",
+                EndLimitMagnitude = 6.4,
+                EndMood = 4
+            });
+
+
             this.Meteors.Add(new Meteor()
             {
                 Number = 1,
@@ -73,26 +92,19 @@ namespace DalFake
                 Interval = Intervals.First()
             });
 
-            this.People.Add(new Person() { Name = "Иван", Surname = "Иванов", MiddleName = "Иванович" });
-            this.Group_Person.Add(new Group_Person() { Group = Groups.First(), Person = People.First(), Role = "Наблюдатель" });
-            this.States.Add(new State()
-            {
-                Person = People.First(),
-                Interval = Intervals.First(),
-                StartLimitMagnitude = 5.5,
-                StartMood = 5,
-                Direction = 6,
-                Center = "Лебедь",
-                EndLimitMagnitude = 6.4,
-                EndMood = 4
-            });
-
             this.Magnitudes.Add(new Magnitude()
             {
                 MagnitudeValue = 2.3,
-                Person = People.First(),
+                Person = People.Find(p => p.Name == "Иван"),
                 Meteor = Meteors.First()
             });
+            this.Magnitudes.Add(new Magnitude()
+            {
+                MagnitudeValue = 2.3,
+                Person = People.Find(p => p.Name == "Петр"),
+                Meteor = Meteors.First()
+            });
+
 
             this.EquatorialCoordinates.Add(new EquatorialCoordinate() { Meteor = Meteors.First(), Declension = 55, HourAngle = 113.68 });
         }

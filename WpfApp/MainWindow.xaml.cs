@@ -25,6 +25,7 @@ namespace WpfApp
     {
         private MeteorService _meteorService;
         private ExpeditionService _expeditionService;
+        private MagnitudeService _magnitudeService;
 
         public MainWindow()
         {
@@ -34,12 +35,17 @@ namespace WpfApp
 
             _meteorService = new MeteorService();
             _expeditionService = new ExpeditionService();
+            _magnitudeService = new MagnitudeService();
 
             var expiditions = _expeditionService.GetAllExpeditions();
             var meteors = _meteorService.GetAllMeteors().ToList();
+            var magnitudes = _magnitudeService.GetAllMagnitudes().ToList();
 
+            
             var meteorsViewModel = Mapper.Map<List<MeteorViewModel>>(meteors);
             var expeditionsViewModel = Mapper.Map<List<ExpeditionViewModel>>(expiditions);
+            var magnitudesViewModel = Mapper.Map<List<MagnitudeViewModel>>(magnitudes);
+            meteorsViewModel.First().Magnitudes = magnitudesViewModel;
 
             var mainModel = new MainViewModel() { Meteors = meteorsViewModel, Expiditions = expeditionsViewModel };
             this.DataContext = mainModel;

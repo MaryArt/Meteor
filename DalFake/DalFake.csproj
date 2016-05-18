@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExpeditionRepository.cs" />
+    <Compile Include="MagnitudeRepository.cs" />
     <Compile Include="MeteorRepository.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

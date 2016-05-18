@@ -14,7 +14,6 @@
     </Window.DataContext>
     <Grid x:Name="RootGrid"  >
 
-        <!--<local:UserControl1 Margin="10,189,10,10" />-->
         <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{}" Margin="0,0,385,213">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -165,6 +164,16 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Звездная вел.">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="???"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+               
+
             </DataGrid.Columns>
         </DataGrid>
         

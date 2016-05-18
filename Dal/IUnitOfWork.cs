@@ -10,6 +10,8 @@ namespace Dal
     public interface IUnitOfWork /*: IDisposable*/
     {
         IRepository<Meteor> Meteors { get; }
+        IRepository<Magnitude> Magnitudes { get; }
+        IRepository<Expedition> Expeditions { get; }
         void Save();
     }
 }

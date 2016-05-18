@@ -11,6 +11,8 @@ namespace Dal
     {
         private MyContext _myContext;
         private MeteorRepository _meteorRepository;
+        private ExpeditionRepository _expeditionRepository;
+        private MagnitudeRepository _magnitudeRepository;
 
         public UnitOfWork()
         {
@@ -20,6 +22,16 @@ namespace Dal
         public IRepository<Meteor> Meteors
         {
             get { return _meteorRepository ?? (_meteorRepository = new MeteorRepository(_myContext)); }
+        }
+
+        public IRepository<Expedition> Expeditions
+        {
+            get { return _expeditionRepository ?? (_expeditionRepository = new ExpeditionRepository(_myContext)); }
+        }
+
+        public IRepository<Magnitude> Magnitudes
+        {
+            get { return _magnitudeRepository ?? (_magnitudeRepository = new MagnitudeRepository(_myContext)); }
         }
 
 

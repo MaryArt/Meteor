@@ -12,6 +12,7 @@ namespace DalFake
         private MyContext _myContext;
         private MeteorRepository _meteorRepository;
         private ExpeditionRepository _expeditionRepository;
+        private MagnitudeRepository _magnitudeRepository;
 
         public UnitOfWork()
         {
@@ -26,6 +27,11 @@ namespace DalFake
         public ExpeditionRepository Expeditions
         {
             get { return _expeditionRepository ?? (_expeditionRepository = new ExpeditionRepository(_myContext)); }
+        }
+
+        public MagnitudeRepository Magnitudes
+        {
+            get { return _magnitudeRepository ?? (_magnitudeRepository = new MagnitudeRepository(_myContext)); }
         }
 
         public void Save()

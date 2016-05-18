@@ -21,6 +21,7 @@ namespace WpfApp
 
             Mapper.CreateMap<Meteor, MeteorViewModel>()
                 .ForMember("Time", opt => opt.MapFrom(c => c.Time.ToLongTimeString()));
+            Mapper.CreateMap<Magnitude, MagnitudeViewModel>();
         }
     }
 }

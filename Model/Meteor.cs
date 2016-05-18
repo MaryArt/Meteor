@@ -41,8 +41,10 @@ namespace Model
         public double TraceContour { get; set; }
 
         public string Source { get; set; }
-        
-        public Interval Interval { get; set; } 
-        
+
+        public Interval Interval { get; set; }
+
+        public virtual List<Magnitude> Magnitudes { get; set; }
+
     }
 }

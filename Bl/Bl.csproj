@@ -41,13 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExpeditionsService.cs" />
+    <Compile Include="MagnitudeService.cs" />
     <Compile Include="MeteorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DalFake\DalFake.csproj">
-      <Project>{238825df-f831-418b-a91a-04425cde2d85}</Project>
-      <Name>DalFake</Name>
+    <ProjectReference Include="..\Dal\Dal.csproj">
+      <Project>{a36d827f-025e-4c9d-a484-941c349c7b05}</Project>
+      <Name>Dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{67d48f34-8898-48bb-b41b-d58ccc4c8383}</Project>

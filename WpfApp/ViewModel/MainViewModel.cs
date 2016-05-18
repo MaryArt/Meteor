@@ -14,26 +14,26 @@ namespace WpfApp.ViewModel
     public class MainViewModel : INotifyPropertyChanged // как viewmodel  нужен только для представления данных
     {
 
-        private List<ExpeditionViewModel> expiditions;
-        private List<MeteorViewModel> meteors;
+        private List<ExpeditionViewModel> _expiditions;
+        private List<MeteorViewModel> _meteors;
 
 
         public List<ExpeditionViewModel> Expiditions
         {
-            get { return expiditions; }
+            get { return _expiditions; }
             set
             {
-                expiditions = value;
+                _expiditions = value;
                 OnPropertyChanged();
             }
         }
 
         public List<MeteorViewModel> Meteors
         {
-            get { return meteors; }
+            get { return _meteors; }
             set
             {
-                meteors = value;
+                _meteors = value;
                 OnPropertyChanged();
             }
         }

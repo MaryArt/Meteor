@@ -25,5 +25,6 @@ namespace WpfApp.ViewModel
         public double TraceDuration { get; set; }
         public double TraceContour { get; set; }
         public string Source { get; set; }
+        public List<MagnitudeViewModel> Magnitudes { get; set; }
     }
 }
