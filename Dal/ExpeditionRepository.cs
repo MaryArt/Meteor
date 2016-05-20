@@ -10,9 +10,11 @@ namespace Dal
 {
     public class ExpeditionRepository : IRepository<Expedition>
     {
-        private MyContext _myContext;
+        //private MyContext _myContext;
+        private MeteorContext _myContext;
 
-        public ExpeditionRepository(MyContext context)
+        //public ExpeditionRepository(MyContext context)
+        public ExpeditionRepository(MeteorContext context)
         {
             _myContext = context;
         }

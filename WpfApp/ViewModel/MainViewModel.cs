@@ -69,6 +69,8 @@ namespace WpfApp.ViewModel
 
         public ICommand BestCommandEver { get; set; }
 
+        
+
         /// <summary>
         /// функция которую выполняет команда
         /// </summary>

@@ -3,10 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp"
-        x:Class="WpfApp.MainWindow"
-        xmlns:model="clr-namespace:WpfApp.ViewModel;assembly=WpfApp"
-        xmlns:viewmodel ="clr-namespace:WpfApp.ViewModel"
+    x:Class="WpfApp.MainWindow"
+    xmlns:viewmodel ="clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="398.761" Width="556.961">
     <Window.DataContext>
@@ -168,7 +166,13 @@
                 <DataGridTemplateColumn Header="Звездная вел.">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBox Text="???"/>
+                            <ListView ItemsSource="{Binding Magnitudes}" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding MagnitudeValue}"></TextBox>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>    
+                            </ListView>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

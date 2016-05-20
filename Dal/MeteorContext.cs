@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using Model;
-
+using  Model;
 namespace Dal
 {
-    public class MyContext : DbContext
+    public class MeteorContext : DbContext
     {
         public DbSet<Meteor> Meteors { get; set; }
         public DbSet<Interval> Intervals { get; set; }
@@ -23,30 +22,15 @@ namespace Dal
         public DbSet<Magnitude> Magnitudes { get; set; }
         public DbSet<EquatorialCoordinate> EquatorialCoordinates { get; set; }
 
-        //public MyContext() : base("Meteor.Dal.MyContext")
-        //{
-        //    //Database.SetInitializer<MyContext>(new DbInitializer());
-        //    //using (MyContext db = new MyContext())
-        //    //    db.Database.Initialize(true);
-        //}
-
-        static MyContext() 
+        public MeteorContext() : base("MeteorDB")
         {
-            // ROLA - This is a hack to ensure that Entity Framework SQL Provider is copied across to the output folder.
-            // As it is installed in the GAC, Copy Local does not work. It is required for probing.
-            // Fixed "Provider not loaded" error
-            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
-            Database.SetInitializer<MyContext>(new DbInitializer());
-            
-            //using (MyContext db = new MyContext())
-            //    db.Database.Initialize(true);
+            Database.SetInitializer(new DbInitializerMeteor());
         }
-
-
     }
-    class DbInitializer : System.Data.Entity.DropCreateDatabaseAlways<MyContext>
+
+    public class DbInitializerMeteor : System.Data.Entity.DropCreateDatabaseAlways<MeteorContext>
     {
-        protected override void Seed(MyContext context)
+        protected override void Seed(MeteorContext context)
         {
             var expedition = context.Expeditions.Add(new Expedition() { Name = "Персеиды", Mission = "ММП", Latitude = 46.67 });
             var expedition2 = context.Expeditions.Add(new Expedition() { Name = "Ореониды", Mission = "ММП", Latitude = 46.67 });

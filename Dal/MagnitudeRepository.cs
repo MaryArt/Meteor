@@ -10,9 +10,10 @@ namespace Dal
 {
     public class MagnitudeRepository : IRepository<Magnitude>
     {
-        private MyContext _myContext;
+        //private MyContext _myContext;
+        private MeteorContext _myContext;
 
-        public MagnitudeRepository(MyContext context)
+        public MagnitudeRepository(MeteorContext context)//(MyContext context)
         {
             _myContext = context;
         }
