@@ -7,16 +7,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using AutoMapper;
+using Bl;
 using Microsoft.Practices.Prism.Commands;
+using Model;
 
 namespace WpfApp.ViewModel
 {
-    public class MainViewModel : INotifyPropertyChanged // как viewmodel  нужен только для представления данных
+    public class MainViewModel : INotifyPropertyChanged 
     {
-
         private List<ExpeditionViewModel> _expiditions;
+        private List<DayViewModel> _days;
         private List<MeteorViewModel> _meteors;
+        private ExpeditionViewModel _selectedExpedition;
+        private DayViewModel _selectedDay;
+        private List<IntervalViewModel> _intervals;
 
+        private DayService _dayService;
+        private IntervalService _intervalService;
 
         public List<ExpeditionViewModel> Expiditions
         {
@@ -38,7 +46,50 @@ namespace WpfApp.ViewModel
             }
         }
 
-        public ExpeditionViewModel Selected { get; set; }
+        public ExpeditionViewModel SelectedExpedition
+        {
+            get { return _selectedExpedition; }
+            set
+            {
+                _selectedExpedition = value;
+                OnPropertyChanged();
+                if (value == null) return;
+                Days = Mapper.Map<List<DayViewModel>>(_dayService.GetAllDaysByExpeditionId(value.Id));
+            }
+        }
+
+        public List<DayViewModel> Days
+        {
+            get { return _days; }
+            set
+            {
+                _days = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public DayViewModel SelectedDay
+        {
+            get { return _selectedDay; }
+            set
+            {
+                _selectedDay = value;
+                OnPropertyChanged();
+                if (value == null) return;
+                var intervals = _intervalService.GetAllIntervalsByDayId(value.Id);
+                Intervals = Mapper.Map<List<IntervalViewModel>>(intervals);
+            }
+        }
+
+        public List<IntervalViewModel> Intervals
+        {
+            get { return _intervals; }
+            set
+            {
+                _intervals = value;
+                OnPropertyChanged();
+            }
+        }
 
         public MainViewModel()
         {
@@ -52,6 +103,9 @@ namespace WpfApp.ViewModel
             //задаем функцию которую будет выполнять команда
             //команда нужна для того чтобы потом привязать ее к контролам на форме
             BestCommandEver = new DelegateCommand<ExpeditionViewModel>(HelloWorld);
+
+            _dayService = new DayService();
+            _intervalService = new IntervalService();
         }
 
 

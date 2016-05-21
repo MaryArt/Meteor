@@ -8,7 +8,5 @@ G:\WORK\METEORS\Diplom\prog\Meteor\Bl\obj\Debug\Bl.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Bl\obj\Debug\Bl.pdb
 G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Dal.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\EntityFramework.dll
-G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\EntityFramework.SqlServer.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\Dal.pdb
 G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\EntityFramework.xml
-G:\WORK\METEORS\Diplom\prog\Meteor\Bl\bin\Debug\EntityFramework.SqlServer.xml

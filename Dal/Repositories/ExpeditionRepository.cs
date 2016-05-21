@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
 using System.Data.Entity;
+using System.Linq;
+using Model;
 
-namespace Dal
+namespace Dal.Repositories
 {
     public class ExpeditionRepository : IRepository<Expedition>
     {
@@ -29,14 +27,14 @@ namespace Dal
             return _myContext.Expeditions.Find(id);
         }
 
-        public void Create(Expedition expedition)
+        public void Create(Expedition state)
         {
-            _myContext.Expeditions.Add(expedition);
+            _myContext.Expeditions.Add(state);
         }
 
-        public void Update(Expedition expedition)
+        public void Update(Expedition state)
         {
-            _myContext.Entry(expedition).State = EntityState.Modified;
+            _myContext.Entry(state).State = EntityState.Modified;
         }
 
         public IEnumerable<Expedition> Find(Func<Expedition, Boolean> predicate)

@@ -12,6 +12,13 @@ namespace WpfApp.ViewModel
         public int Id { get; set; }
         public int Number { get; set; }
         public string Time { get; set; }
+        //public string TimeString
+        //{
+        //    get { return Time.ToLongTimeString(); }
+
+        //    set { Time = Convert.ToDateTime(value); }
+        //}
+
         public int Length { get; set; }
         public double Duration { get; set; }
         public int Speed { get; set; }

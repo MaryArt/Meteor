@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dal.Repositories;
 using Model;
 
 namespace Dal
@@ -14,6 +15,8 @@ namespace Dal
         private MeteorRepository _meteorRepository;
         private ExpeditionRepository _expeditionRepository;
         private MagnitudeRepository _magnitudeRepository;
+        private DayRepository _dayRepository;
+        private IntervalRepository _intervalRepository;
 
         public UnitOfWork()
         {
@@ -36,6 +39,15 @@ namespace Dal
             get { return _magnitudeRepository ?? (_magnitudeRepository = new MagnitudeRepository(_myContext)); }
         }
 
+        public IRepository<Day> Days
+        {
+            get { return _dayRepository ?? (_dayRepository = new DayRepository(_myContext)); }
+        }
+
+        public IRepository<Interval> Intervals
+        {
+            get { return _intervalRepository ?? (_intervalRepository = new IntervalRepository(_myContext)); }
+        }
 
         public void Save()
         {

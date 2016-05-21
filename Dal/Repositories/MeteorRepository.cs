@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
 using System.Data.Entity;
+using System.Linq;
+using Model;
 
-namespace Dal
+namespace Dal.Repositories
 {
 
     public class MeteorRepository : IRepository<Meteor>
@@ -21,8 +19,7 @@ namespace Dal
 
         public IEnumerable<Meteor> GetAll()
         {
-            var meteors = _myContext.Meteors;
-            return meteors;
+            return _myContext.Meteors;
         }
 
         public Meteor Get(int id)
@@ -30,14 +27,14 @@ namespace Dal
             return _myContext.Meteors.Find(id);
         }
 
-        public void Create(Meteor Meteor)
+        public void Create(Meteor state)
         {
-            _myContext.Meteors.Add(Meteor);
+            _myContext.Meteors.Add(state);
         }
 
-        public void Update(Meteor Meteor)
+        public void Update(Meteor state)
         {
-            _myContext.Entry(Meteor).State = EntityState.Modified;
+            _myContext.Entry(state).State = EntityState.Modified;
         }
 
         public IEnumerable<Meteor> Find(Func<Meteor, Boolean> predicate)

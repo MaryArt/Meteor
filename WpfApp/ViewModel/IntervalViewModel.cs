@@ -13,9 +13,22 @@ namespace WpfApp.ViewModel
         public int Id { get; set; }
         public int Number { get; set; }
 
-        public DateTime TimeBegin { get; set; }
+        public string Name
+        {
+            get
+            {
+                if (Group != null) return Number + " - " + Group.Name;
+                return Number + " - ???";
+            }
+        }
 
-        public DateTime TimeEnd { get; set; }
+        public string TimeBegin { get; set; }
+
+        public string TimeEnd { get; set; }
+
+        //public string TimeBeginString => TimeBegin.ToShortTimeString();
+
+        //public string TimeEndString => TimeEnd.ToShortTimeString();
 
         public double Clouds { get; set; }
 

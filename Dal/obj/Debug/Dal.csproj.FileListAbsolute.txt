@@ -14,6 +14,3 @@ G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\Debug\EntityFramework.SqlServerCompac
 G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
 G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.pdb
-G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.Migrations.MyContextMigration.resources
-G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.csproj.GenerateResource.Cache
-G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\Debug\Dal.Migrations.NewMigration.resources

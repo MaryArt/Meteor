@@ -81,23 +81,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MagnitudeRepository.cs" />
-    <Compile Include="ExpeditionRepository.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Repositories\DayRepository.cs" />
+    <Compile Include="Repositories\GroupRepository.cs" />
+    <Compile Include="Repositories\Group_PersonRepository.cs" />
+    <Compile Include="Repositories\IntervalRepository.cs" />
+    <Compile Include="Repositories\MagnitudeRepository.cs" />
+    <Compile Include="Repositories\ExpeditionRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="MeteorContext.cs" />
-    <Compile Include="MeteorRepository.cs" />
-    <Compile Include="Migrations\201605201750424_MyContextMigration.cs" />
-    <Compile Include="Migrations\201605201750424_MyContextMigration.Designer.cs">
-      <DependentUpon>201605201750424_MyContextMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605201854535_NewMigration.cs" />
-    <Compile Include="Migrations\201605201854535_NewMigration.Designer.cs">
-      <DependentUpon>201605201854535_NewMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="MyContext.cs" />
+    <Compile Include="Repositories\MeteorRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PersonRepository.cs" />
+    <Compile Include="Repositories\StateRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,14 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605201750424_MyContextMigration.resx">
-      <DependentUpon>201605201750424_MyContextMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605201854535_NewMigration.resx">
-      <DependentUpon>201605201854535_NewMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

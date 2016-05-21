@@ -11,7 +11,7 @@ namespace Bl
 {
     public class MeteorService
     {
-        UnitOfWork Database { get; set; }
+        UnitOfWork Database { get; }
 
         public MeteorService()
         {

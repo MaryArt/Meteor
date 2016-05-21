@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
 using System.Data.Entity;
+using System.Linq;
+using Model;
 
-namespace Dal
+namespace Dal.Repositories
 {
     public class MagnitudeRepository : IRepository<Magnitude>
     {
@@ -28,14 +26,14 @@ namespace Dal
             return _myContext.Magnitudes.Find(id);
         }
 
-        public void Create(Magnitude magnitude)
+        public void Create(Magnitude state)
         {
-            _myContext.Magnitudes.Add(magnitude);
+            _myContext.Magnitudes.Add(state);
         }
 
-        public void Update(Magnitude magnitude)
+        public void Update(Magnitude state)
         {
-            _myContext.Entry(magnitude).State = EntityState.Modified;
+            _myContext.Entry(state).State = EntityState.Modified;
         }
 
         public IEnumerable<Magnitude> Find(Func<Magnitude, Boolean> predicate)

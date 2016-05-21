@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DayService.cs" />
     <Compile Include="ExpeditionsService.cs" />
+    <Compile Include="IntervalService.cs" />
     <Compile Include="MagnitudeService.cs" />
     <Compile Include="MeteorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

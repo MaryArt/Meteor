@@ -11,8 +11,7 @@
         <viewmodel:MainViewModel/>
     </Window.DataContext>
     <Grid x:Name="RootGrid"  >
-
-        <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{}" Margin="0,0,385,213">
+        <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" Margin="0,0,385,213">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander Header="{Binding Name}">
@@ -35,6 +34,53 @@
 
                             <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Hello" 
                                     Command="{Binding Path=DataContext.BestCommandEver, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}" />
+                        </Grid>
+                    </Expander>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" Margin="169,0,216,213">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Date}"> </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox ItemsSource="{Binding Intervals}" SelectedItem="{}" Margin="338,0,47,213">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Expander Header="{Binding Name}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Начало:" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Конец:" />
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Облачность:" />
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Фаза Луны:" />
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Высота Луны:" />
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Высота Радианта:" />
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TimeBegin}" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TimeEnd}" />
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Clouds}" />
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Moon}" />
+                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding MoonHeight}" />
+                            <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding RadiantHeight}" />
+
                         </Grid>
                     </Expander>
                 </DataTemplate>
