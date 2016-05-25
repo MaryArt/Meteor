@@ -39,7 +39,9 @@ namespace Dal.Repositories
 
         public IEnumerable<Meteor> Find(Func<Meteor, Boolean> predicate)
         {
-            return _myContext.Meteors.Where(predicate).ToList();
+            var meteors = _myContext.Meteors.Where(predicate).ToList();
+            //meteors.ForEach(m => _myContext.Entry(m).Reference(c => c.Interval).Load());
+            return meteors;
         }
 
         public void Delete(int id)

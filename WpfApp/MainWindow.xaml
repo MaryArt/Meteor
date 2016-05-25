@@ -6,12 +6,12 @@
     x:Class="WpfApp.MainWindow"
     xmlns:viewmodel ="clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="398.761" Width="556.961">
+        Title="MainWindow" Height="398.761" Width="848.961">
     <Window.DataContext>
         <viewmodel:MainViewModel/>
     </Window.DataContext>
     <Grid x:Name="RootGrid"  >
-        <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" Margin="0,0,385,213">
+        <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" Margin="10,10,0,203" HorizontalAlignment="Left" Width="204">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander Header="{Binding Name}">
@@ -40,15 +40,15 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" Margin="169,0,216,213">
+        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" Margin="219,10,0,203" HorizontalAlignment="Left" Width="71">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Date}"> </TextBlock>
+                    <TextBlock Text="{Binding Date}"></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox ItemsSource="{Binding Intervals}" SelectedItem="{}" Margin="338,0,47,213">
+        <ListBox ItemsSource="{Binding Intervals}" SelectedItem="{Binding SelectedInterval }" Margin="295,10,0,203" HorizontalAlignment="Left" Width="177">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander Header="{Binding Name}">
@@ -87,7 +87,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False" Height="173"  VerticalAlignment="Top" Margin="10,171,10,0">
+        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False" Margin="10,170,0,10" HorizontalAlignment="Left" Width="585">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="№">
                     <DataGridTemplateColumn.CellTemplate>
@@ -96,7 +96,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
+
                 <DataGridTemplateColumn Header="T">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -217,68 +217,72 @@
                                     <DataTemplate>
                                         <TextBox Text="{Binding MagnitudeValue}"></TextBox>
                                     </DataTemplate>
-                                </ListView.ItemTemplate>    
+                                </ListView.ItemTemplate>
                             </ListView>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-               
+
 
             </DataGrid.Columns>
         </DataGrid>
-        
-        <!--<DataGrid  x:Name="MeteorsDataGrid" Height="173"  VerticalAlignment="Top" Margin="173,0,10,0" />
-        <Grid Margin="10,187,10,10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <ListBox ItemsSource="{Binding Groups}" SelectedItem="" Margin="477,10,0,203" HorizontalAlignment="Left" Width="354">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Expander Header="{Binding Name}" Width="329">
+                        <ListView ItemsSource="{Binding Group_People}" SelectedItem="{}" HorizontalAlignment="Stretch" Width="Auto" Margin="5,5,0,5">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Person}"  Margin="0,0,5,0"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Role}"    Margin="0,0,5,0"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Program}" Margin="0,0,5,0" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="№" Margin="0 0 10 0" />
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="T" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="λ" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="3" Text="τ " Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="4" Text="ω" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="5" Text="c" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="6" Text="o" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="7" Text="Z" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="8" Text="P" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="9" Text="P'" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="10" Text="прим." Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="11" Text="S-λ" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="12" Text="S-τ" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="13" Text="S-ω" Margin="0 0 10 0"/>
-            <TextBlock Grid.Row="0" Grid.Column="14" Text="Поток" Margin="0 0 10 0"/>
+                    </Expander>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
-            <ListView Grid.Row="1" Grid.ColumnSpan="16" ItemsSource="{Binding Meteors}" SelectedItem="{}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBox Text="{ Binding }"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            --><!--<TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding }" />
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Latitude}" />--><!--
+        <DataGrid ItemsSource="{Binding People}" AutoGenerateColumns="False" Margin="600,170,0,10" HorizontalAlignment="Left" Width="231">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Фамилия">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{ Binding Surname}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
-        </Grid>-->
+                <DataGridTemplateColumn Header="Имя">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{ Binding Name}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="№">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{ Binding MiddleName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
     </Grid>
 </Window>

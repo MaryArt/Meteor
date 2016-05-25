@@ -33,21 +33,29 @@ namespace WpfApp
 
             AutoMapperConfig.RegisterMappings();
 
-            _meteorService = new MeteorService();
+            //_meteorService = new MeteorService();
             _expeditionService = new ExpeditionService();
-            _magnitudeService = new MagnitudeService();
+            //_magnitudeService = new MagnitudeService();
 
             var expiditions = _expeditionService.GetAllExpeditions();
-            var meteors = _meteorService.GetAllMeteors().ToList();
-            var magnitudes = _magnitudeService.GetAllMagnitudes().ToList();
+            //var meteors = _meteorService.GetAllMeteors().ToList();
+            //var magnitudes = _magnitudeService.GetAllMagnitudes().ToList();
 
             
-            var meteorsViewModel = Mapper.Map<List<MeteorViewModel>>(meteors);
+            //var meteorsViewModel = Mapper.Map<List<MeteorViewModel>>(meteors);
             var expeditionsViewModel = Mapper.Map<List<ExpeditionViewModel>>(expiditions);
-            var magnitudesViewModel = Mapper.Map<List<MagnitudeViewModel>>(magnitudes);
-            meteorsViewModel.First().Magnitudes = magnitudesViewModel;
+            //var magnitudesViewModel = Mapper.Map<List<MagnitudeViewModel>>(magnitudes);
+            //meteorsViewModel.First().Magnitudes = magnitudesViewModel;
 
-            var mainModel = new MainViewModel() { Meteors = meteorsViewModel, Expiditions = expeditionsViewModel };
+            var mainModel = new MainViewModel()
+            {
+                Expiditions = expeditionsViewModel,
+                Days = new List<DayViewModel>(),
+                Intervals = new List<IntervalViewModel>(),
+                Groups = new List<GroupViewModel>(),
+                People = new List<PersonViewModel>(),
+                Meteors = new List<MeteorViewModel>()
+            };
             this.DataContext = mainModel;
         }
 

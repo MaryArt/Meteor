@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner"
+  dslVersion="1.0.0.0"
+  Id="8db0ae08-8019-4378-a8ea-97a77c717cd9"
+  name="ModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <artifact
+        Id="74cacfa3-5133-4fa9-998d-d87539c3c238"
+        name="Model.csproj"
+        isAbstract="false"
+        isLeaf="false"
+        fileName="Model\Model.csproj" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="1e036bd3-389f-4180-9b36-9efb475ffeb1"
+        name="Dal.csproj"
+        isAbstract="false"
+        isLeaf="false"
+        fileName="Dal\Dal.csproj" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="5ba9618d-01c8-4364-b4e0-4e4242f05ab7"
+        name="WpfApp.csproj"
+        isAbstract="false"
+        isLeaf="false"
+        fileName="WpfApp\WpfApp.csproj" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="c253c8b3-8000-4745-8752-bf875cd13a4c"
+        name="Bl.csproj"
+        isAbstract="false"
+        isLeaf="false"
+        fileName="Bl\Bl.csproj" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="a0ffff0a-694f-41b5-ad60-86c0fb4acae6"
+        isAbstract="false"
+        isLeaf="false"
+        fileName="bl\services\" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="914d4ea0-dc98-4d98-bf6a-c8a43b74b2bd"
+        isAbstract="false"
+        isLeaf="false"
+        fileName="wpfapp\viewmodel\" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="006ed64c-b3fb-4798-acd8-19ff845d5555"
+        isAbstract="false"
+        isLeaf="false"
+        fileName="dal\repositories\" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="abcfd95f-3702-48e4-a422-fe9a19202b36"
+        name="automapperconfig.cs"
+        isAbstract="false"
+        isLeaf="false"
+        fileName="wpfapp\automapperconfig.cs" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="32ac8fd4-7fde-46b2-8b52-8807bc5406b0"
+        name="BL"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <part
+            Id="a5c7d199-d869-4405-b7ee-c310ebb0807a"
+            name="Services"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="Composite"
+            isComposite="true">
+            <type_NamedElement>
+              <componentMoniker
+                Id="3fe7cf3f-b104-441d-992b-0e9ff1286529"
+                LastKnownName="Component3"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </part>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="8b8c43ae-ea6a-4583-b41a-d1990ad10684"
+        name="Component2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="4a273f30-daf3-4d52-83ff-27846d0a75fd"
+        name="DAL"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <part
+            Id="b8428872-9b5c-4cc6-8fc8-de5dc075a123"
+            name="Repositories"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="Composite"
+            isComposite="true">
+            <type_NamedElement>
+              <componentMoniker
+                Id="6efd70c0-ee7b-4cf6-9552-73b5951af784"
+                LastKnownName="Component4"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </part>
+          <part
+            Id="6297593c-7371-458a-9b69-aa68ce9927ae"
+            name="DBContext"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="Composite"
+            isComposite="true">
+            <type_NamedElement>
+              <componentMoniker
+                Id="6fc77752-1b3d-430e-817c-0b799ecfea57"
+                LastKnownName="Component5"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </part>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="37350194-6efe-47a1-b4d0-3ae5d74fd476"
+        name="PL"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <part
+            Id="ef467e6a-b99a-496d-8c54-b25f34e5f760"
+            name="ViewModels"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="Composite"
+            isComposite="true">
+            <type_NamedElement>
+              <componentMoniker
+                Id="844ed538-bc0e-4cd1-8a86-34a319cc038f"
+                LastKnownName="Component1"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </part>
+        </ownedAttributesInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="844ed538-bc0e-4cd1-8a86-34a319cc038f"
+        name="Component1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="3fe7cf3f-b104-441d-992b-0e9ff1286529"
+        name="Component3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="6efd70c0-ee7b-4cf6-9552-73b5951af784"
+        name="Component4"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="6fc77752-1b3d-430e-817c-0b799ecfea57"
+        name="Component5"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d05a74aa-79ad-4b21-bea6-bdb82982da15"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

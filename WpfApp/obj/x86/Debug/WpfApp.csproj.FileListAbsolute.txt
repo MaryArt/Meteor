@@ -25,10 +25,13 @@ G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\x86\Debug\WpfApp.Properties.Resour
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\x86\Debug\WpfApp.csproj.GenerateResource.Cache
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\x86\Debug\WpfApp.exe
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\x86\Debug\WpfApp.pdb
-G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\x86\Debug\UserControl1.g.cs
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
-G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\x86\Debug\UserControl1.baml
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\Microsoft.Practices.Prism.Mvvm.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\Microsoft.Practices.Prism.Mvvm.xml
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\AutoMapper.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\Bl.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\Microsoft.Practices.Prism.Mvvm.Desktop.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\Bl.pdb
+G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\x86\Debug\AutoMapper.xml

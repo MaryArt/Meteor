@@ -16,6 +16,11 @@ namespace WpfApp.ViewModel
 
         public string MiddleName { get; set; }
 
-        public string Initials => String.Concat(Surname[0] + MiddleName[0]);
+        public string Initials => String.Concat(Surname[0], ".",MiddleName[0],".");
+
+        public override string ToString()
+        {
+            return Surname + " " + Name[0] + "." + MiddleName[0] + ".";
+        }
     }
 }

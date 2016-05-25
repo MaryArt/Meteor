@@ -26,6 +26,7 @@ namespace Dal.Repositories
         {
             var day = _myContext.Intervals.Find(id);
             _myContext.Entry(day).Reference(c=>c.Group).Load();
+            _myContext.Entry(day).Collection(c => c.Meteors).Load();
             return day;
         }
 

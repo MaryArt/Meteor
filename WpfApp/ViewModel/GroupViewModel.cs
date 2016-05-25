@@ -12,5 +12,7 @@ namespace WpfApp.ViewModel
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public List<Group_PersonViewModel> Group_People { get; set; }
     }
 }

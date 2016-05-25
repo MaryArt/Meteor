@@ -10,7 +10,7 @@ G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\EntityFramework.SqlServer.x
 G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\x86\Debug\Dal.csprojResolveAssemblyReference.cache
 G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\x86\Debug\Dal.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Dal\obj\x86\Debug\Dal.pdb
-G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\Microsoft.Practices.Prism.Mvvm.dll
-G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
-G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\Microsoft.Practices.Prism.Mvvm.xml
-G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\EntityFramework.SqlServerCompact.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\System.Data.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\System.Data.SqlServerCe.dll
+G:\WORK\METEORS\Diplom\prog\Meteor\Dal\bin\x86\Debug\EntityFramework.SqlServerCompact.xml

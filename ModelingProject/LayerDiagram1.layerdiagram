@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="b2fd1d8c-9b66-4c03-b8db-133f4783566a" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="84d695f7-fadd-4fb3-aeba-8efde9f1419b" name="WpfApp">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="62623eb0-ac0e-4022-ae76-a773f56ec89c" direction="Forward">
+          <layerMoniker Id="4bfb6caa-0588-4549-bc53-8ba9309ae0ea" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="4886e312-a554-4511-ba5b-196336c9dd77" direction="Forward">
+          <layerMoniker Id="740648ec-9bb3-45a9-88b2-7aed96afb83d" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="0045f670-b27a-4a26-9e42-30bdbfe61df5" name="WpfApp">
+          <ArtifactNode Label="WpfApp" Category="CodeSchema_Project" Id="(Assembly=../WpfApp/WpfApp.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=WpfApp)" Label="WpfApp.exe" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.exe" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="4bfb6caa-0588-4549-bc53-8ba9309ae0ea" name="Model">
+      <references>
+        <reference Id="d7e4f65d-cc83-42b7-aef1-dad07bc6ad6e" name="Model">
+          <ArtifactNode Label="Model" Category="CodeSchema_Project" Id="(Assembly=../Model/Model.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Model)" Label="Model.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="c97d18f1-eb21-4927-9a81-594861ba4c2c" name="Dal">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="f7f62b52-a9d3-4620-8e89-9d8e1dddda67" direction="Forward">
+          <layerMoniker Id="4bfb6caa-0588-4549-bc53-8ba9309ae0ea" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="9d61fbb3-b220-42b2-a68e-62c39dfa4b45" name="Dal">
+          <ArtifactNode Label="Dal" Category="CodeSchema_Project" Id="(Assembly=../Dal/Dal.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Dal)" Label="Dal.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="740648ec-9bb3-45a9-88b2-7aed96afb83d" name="Bl">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="179970dc-1226-41e2-b8ba-7c867a6c5423" direction="Forward">
+          <layerMoniker Id="c97d18f1-eb21-4927-9a81-594861ba4c2c" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="90f4e60b-16c4-48ed-8941-199d5f99b276" direction="Forward">
+          <layerMoniker Id="4bfb6caa-0588-4549-bc53-8ba9309ae0ea" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="f0e33ccb-684e-4b08-86ba-2392c2f6c999" name="Bl">
+          <ArtifactNode Label="Bl" Category="CodeSchema_Project" Id="(Assembly=../Bl/Bl.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Bl)" Label="Bl.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>
