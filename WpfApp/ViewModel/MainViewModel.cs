@@ -147,8 +147,8 @@ namespace WpfApp.ViewModel
             Days = new List<DayViewModel>()
             {
                 new DayViewModel() {Date = (DateTime.Now).ToShortDateString()},
-                new DayViewModel() {Date = ((DateTime.Now).AddDays(1)).ToShortDateString()},
-                new DayViewModel() {Date = ((DateTime.Now).AddDays(4)).ToShortDateString()},
+                new DayViewModel() {Date = ((DateTime.Now).AddDays(10)).ToShortDateString()},
+                new DayViewModel() {Date = ((DateTime.Now).AddDays(180)).ToShortDateString()},
             };
 
             Intervals = new List<IntervalViewModel>()

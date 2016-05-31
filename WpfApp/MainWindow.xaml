@@ -6,12 +6,12 @@
     x:Class="WpfApp.MainWindow"
     xmlns:viewmodel ="clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="398.761" Width="848.961">
+        Title="MainWindow" Height="672.761" Width="953.961">
     <Window.DataContext>
         <viewmodel:MainViewModel/>
     </Window.DataContext>
     <Grid x:Name="RootGrid"  >
-        <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" Margin="10,10,0,203" HorizontalAlignment="Left" Width="204">
+        <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" Margin="10,169,0,0" HorizontalAlignment="Left" Width="204" Height="155" VerticalAlignment="Top">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander Header="{Binding Name}">
@@ -40,7 +40,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" Margin="219,10,0,203" HorizontalAlignment="Left" Width="71">
+        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" Margin="219,169,0,0" HorizontalAlignment="Left" Width="80" Height="155" VerticalAlignment="Top">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Date}"></TextBlock>
@@ -48,7 +48,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox ItemsSource="{Binding Intervals}" SelectedItem="{Binding SelectedInterval }" Margin="295,10,0,203" HorizontalAlignment="Left" Width="177">
+        <ListBox ItemsSource="{Binding Intervals}" SelectedItem="{Binding SelectedInterval }" Margin="304,169,0,0" HorizontalAlignment="Left" Width="177" Height="155" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander Header="{Binding Name}">
@@ -87,7 +87,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False" Margin="10,170,0,10" HorizontalAlignment="Left" Width="585">
+        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False" Margin="10,329,0,10" HorizontalAlignment="Left" Width="585">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="№">
                     <DataGridTemplateColumn.CellTemplate>
@@ -226,7 +226,7 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <ListBox ItemsSource="{Binding Groups}" SelectedItem="" Margin="477,10,0,203" HorizontalAlignment="Left" Width="354">
+        <ListBox ItemsSource="{Binding Groups}" SelectedItem="" Margin="486,169,0,0" HorizontalAlignment="Left" Width="345" Height="155" VerticalAlignment="Top">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander Header="{Binding Name}" Width="329">
@@ -255,7 +255,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <DataGrid ItemsSource="{Binding People}" AutoGenerateColumns="False" Margin="600,170,0,10" HorizontalAlignment="Left" Width="231">
+        <DataGrid ItemsSource="{Binding People}" AutoGenerateColumns="False" Margin="600,329,0,10" HorizontalAlignment="Left" Width="231">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Фамилия">
                     <DataGridTemplateColumn.CellTemplate>
