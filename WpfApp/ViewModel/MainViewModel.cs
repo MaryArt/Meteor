@@ -12,6 +12,8 @@ using Bl;
 using Bl.Services;
 using Microsoft.Practices.Prism.Commands;
 using Model;
+using WpfApp.ViewModel.Entity;
+using WpfApp.ViewModel.Process;
 
 namespace WpfApp.ViewModel
 {
@@ -33,6 +35,9 @@ namespace WpfApp.ViewModel
         private IntervalService _intervalService;
         private MeteorService _meteorService;
         private GroupService _groupService;
+
+        private ReportViewModel _report;
+        private ExpeditionViewModel _selectedExpeditionProcess;
 
         public List<ExpeditionViewModel> Expiditions
         {
@@ -158,6 +163,27 @@ namespace WpfApp.ViewModel
         }
 
 
+        public ReportViewModel Report
+        {
+            get { return _report; }
+            set
+            {
+                _report = value;
+                OnPropertyChanged(); 
+            }
+        }
+
+        public ExpeditionViewModel SelectedExpeditionProcess
+        {
+            get { return _selectedExpeditionProcess; }
+            set
+            {
+                _selectedExpeditionProcess = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Collections Collections { get; set; }
 
         public MainViewModel()
         {
@@ -241,6 +267,9 @@ namespace WpfApp.ViewModel
             _intervalService = new IntervalService();
             _meteorService = new MeteorService();
             _groupService = new GroupService();
+
+            Report = new ReportViewModel();
+            Collections = new Collections();
         }
 
 

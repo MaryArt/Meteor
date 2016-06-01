@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections.cs" />
     <Compile Include="EquatorialCoordinate.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Expedition.cs" />

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
 
-namespace WpfApp.ViewModel
+namespace WpfApp.ViewModel.Entity
 {
     public class ExpeditionViewModel //: INotifyPropertyChanged
     {
@@ -20,6 +13,8 @@ namespace WpfApp.ViewModel
 
         
         public double Latitude { get; set; }
+
+        public List<DayViewModel> Days { get; set; }
 
         ////это событие оповещает о том что поле изменилось
         //public event PropertyChangedEventHandler PropertyChanged;

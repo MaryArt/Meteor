@@ -12,6 +12,7 @@ using Bl;
 using Bl.Services;
 using Microsoft.Practices.Prism.Commands;
 using Model;
+using WpfApp.ViewModel.Entity;
 
 namespace WpfApp.ViewModel
 {

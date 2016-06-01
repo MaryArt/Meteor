@@ -133,18 +133,20 @@
     <Compile Include="NewExpedition.xaml.cs">
       <DependentUpon>NewExpedition.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\MagnitudeViewModel.cs" />
+    <Compile Include="ViewModel\Process\ReportViewModel.cs" />
+    <Compile Include="ViewModel\Entity\MagnitudeViewModel.cs" />
     <Compile Include="ViewModel\NewExpeditionViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\MeteorViewModel.cs" />
-    <Compile Include="ViewModel\DayViewModel.cs" />
-    <Compile Include="ViewModel\EquatorialCoordinateViewModel.cs" />
-    <Compile Include="ViewModel\ExpeditionViewModel.cs" />
-    <Compile Include="ViewModel\GroupViewModel.cs" />
-    <Compile Include="ViewModel\Group_PersonViewModel.cs" />
-    <Compile Include="ViewModel\IntervalViewModel.cs" />
-    <Compile Include="ViewModel\PersonViewModel.cs" />
-    <Compile Include="ViewModel\StateViewModel.cs" />
+    <Compile Include="ViewModel\Entity\MeteorViewModel.cs" />
+    <Compile Include="ViewModel\Entity\DayViewModel.cs" />
+    <Compile Include="ViewModel\Entity\EquatorialCoordinateViewModel.cs" />
+    <Compile Include="ViewModel\Entity\ExpeditionViewModel.cs" />
+    <Compile Include="ViewModel\Entity\GroupViewModel.cs" />
+    <Compile Include="ViewModel\Entity\Group_PersonViewModel.cs" />
+    <Compile Include="ViewModel\Entity\IntervalViewModel.cs" />
+    <Compile Include="ViewModel\Entity\PersonViewModel.cs" />
+    <Compile Include="ViewModel\Process\GeneralReportItemViewModel.cs" />
+    <Compile Include="ViewModel\Entity\StateViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

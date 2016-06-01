@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp"
         xmlns:viewModel="clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
-        Title="NewExpedition" Height="167.161" Width="300">
+        Title="NewExpedition" Height="174.244" Width="300">
     <Window.DataContext>
         <viewModel:NewExpeditionViewModel/>
     </Window.DataContext>
@@ -29,7 +29,7 @@
             <TextBox Grid.Row="1" Grid.Column="1" Height="22" Text="{Binding Mission , Mode=TwoWay}" />
             <TextBox Grid.Row="2" Grid.Column="1" Height="22" Text="{Binding Latitude , Mode=TwoWay}" />
         </Grid>
-        <Button x:Name="button" Content="Сохранить" HorizontalAlignment="Center" Width="76" Height="20" Margin="102,106,112,10" 
+        <Button x:Name="button" Content="Сохранить" HorizontalAlignment="Center" Width="76" Height="20" Margin="103,101,111,22" 
                 CommandParameter="{Binding NewExpedition}" Click="button_Click" />
     </Grid>
 </Window>

@@ -19,7 +19,18 @@ namespace Dal.Repositories
 
         public IEnumerable<Expedition> GetAll()
         {
-            return _myContext.Expeditions;
+            var expeditions = _myContext.Expeditions;
+            foreach (var exp in expeditions)
+            {
+                foreach (var day in exp.Days)
+                {
+                    foreach (var interval in day.Intervals)
+                    {
+                        _myContext.Entry(interval).Reference(c => c.Group).Load();
+                    }
+                }
+            }
+            return expeditions;
         }
 
         public Expedition Get(int id)

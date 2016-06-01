@@ -29,5 +29,10 @@ namespace Bl.Services
             Database.Save();
             return true;
         }
+
+        public Expedition Get(int id)
+        {
+            return Database.Expeditions.Get(id);
+        }
     }
 }

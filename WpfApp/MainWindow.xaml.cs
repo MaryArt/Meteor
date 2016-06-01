@@ -18,6 +18,8 @@ using System.ComponentModel.DataAnnotations;
 using WpfApp.ViewModel;
 using AutoMapper;
 using Bl.Services;
+using WpfApp.ViewModel.Entity;
+using WpfApp.ViewModel.Process;
 
 namespace WpfApp
 {
@@ -28,6 +30,7 @@ namespace WpfApp
         private ExpeditionService _expeditionService;
         private MagnitudeService _magnitudeService;
         private GroupService _groupService;
+        private Process _process;
 
         public MainWindow()
         {
@@ -53,11 +56,13 @@ namespace WpfApp
                 Meteors = new List<MeteorViewModel>()
             };
             this.DataContext = mainModel;
+
+            _process = new Process();
         }
 
         private void ViewAllGroups_Click(object sender, RoutedEventArgs e)
         {
-            var mainModel = (MainViewModel) this.DataContext;
+            var mainModel = (MainViewModel)this.DataContext;
             mainModel.Groups = Mapper.Map<List<GroupViewModel>>(_groupService.GetAll());
         }
 
@@ -69,63 +74,80 @@ namespace WpfApp
             Load();
         }
 
-        //private StackPanel CreateExpanders(System.Data.Entity.DbSet entities, string propertyNameForHeader)
-        //{
-        //    var stackPanelMain = new StackPanel();
-        //    //цикл по Entities, например, Expedition 
-        //    int i = 0;
-        //    foreach (var entity in entities)
-        //    {
-        //        var radioButton = new RadioButton();
-        //        radioButton.Checked += radioButton_Checked;
-        //        var expander = new Expander();
-        //        expander.Header = entity.GetType().GetProperty(propertyNameForHeader).GetValue(entity);
-
-        //        //составляем внутренности expander 
-        //        // он содержит:
-        //        // имя свойства Entity (из DataAnnotations.DisplayAttribute)
-        //        // значение этого свойства
-        //        // и так несколько раз
-
-        //        var stackPanel = new StackPanel() {  Margin = new Thickness() {  Left = 15, Top=15, Right=1, Bottom=1 } };
-        //        //перебираем все свойства класса нашей Entity
-        //        foreach (var prop in typeof(Expedition).GetProperties())
-        //        {
-        //            //получаем все аттрибуты
-        //            object[] attrs = prop.GetCustomAttributes(false);
-        //            Label label = new Label();
-        //            foreach (Attribute attr in attrs)
-        //            {
-        //                if (attr is DisplayableAttribute)
-        //                {
-        //                    string name = (attr is DisplayAttribute) ? ((DisplayAttribute)attr).GetName() : prop.Name;
-        //                    label = new Label() { Content = name + ": " + prop.GetValue(entity) };
-        //                }
-        //            }
-        //            stackPanel.Children.Add(label);
-        //        }
-        //        expander.Content = stackPanel;
-        //        radioButton.Content = expander;
-        //        stackPanelMain.Children.Add(radioButton);
-        //        i++;
-        //    }
-        //    return stackPanelMain;
-        //}
-
-        //private void radioButton_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    //надо по выбранному checkbox понять у какого элемента он был установлен, например, у какой експедиции. 
-        //    //по этой експедиции найти все дни и вывести их таким же образом в StackPanel - StPDays
-        //}
-
-        //private void button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var test = new ClassTest() { Expiditions = new List<Expedition>()
-        //    {
-        //        new Expedition() {Name = "111", Latitude =  12},
-        //        new Expedition { Name = "222", Latitude = 13}
-        //    } };
-        //    this.DataContext = test;
-        //}
+        private void CalculateGeneralReport_Click(object sender, RoutedEventArgs e)
+        {
+            var mainModel = (MainViewModel)this.DataContext;
+            if (mainModel.SelectedExpeditionProcess == null)
+            {
+                MessageBox.Show("Выберите экспедицию в списке слева");
+                return;
+            }
+            var id = mainModel.SelectedExpeditionProcess.Id;
+            var reportItems = _process.CalculateGeneralReport(id, "per");
+            mainModel.Report = new ReportViewModel()
+            {
+                GeneralReportItems = Mapper.Map<List<GeneralReportItemViewModel>>(reportItems)
+            };
+        }
     }
+
+    //private StackPanel CreateExpanders(System.Data.Entity.DbSet entities, string propertyNameForHeader)
+    //{
+    //    var stackPanelMain = new StackPanel();
+    //    //цикл по Entities, например, Expedition 
+    //    int i = 0;
+    //    foreach (var entity in entities)
+    //    {
+    //        var radioButton = new RadioButton();
+    //        radioButton.Checked += radioButton_Checked;
+    //        var expander = new Expander();
+    //        expander.Header = entity.GetType().GetProperty(propertyNameForHeader).GetValue(entity);
+
+    //        //составляем внутренности expander 
+    //        // он содержит:
+    //        // имя свойства Entity (из DataAnnotations.DisplayAttribute)
+    //        // значение этого свойства
+    //        // и так несколько раз
+
+    //        var stackPanel = new StackPanel() {  Margin = new Thickness() {  Left = 15, Top=15, Right=1, Bottom=1 } };
+    //        //перебираем все свойства класса нашей Entity
+    //        foreach (var prop in typeof(Expedition).GetProperties())
+    //        {
+    //            //получаем все аттрибуты
+    //            object[] attrs = prop.GetCustomAttributes(false);
+    //            Label label = new Label();
+    //            foreach (Attribute attr in attrs)
+    //            {
+    //                if (attr is DisplayableAttribute)
+    //                {
+    //                    string name = (attr is DisplayAttribute) ? ((DisplayAttribute)attr).GetName() : prop.Name;
+    //                    label = new Label() { Content = name + ": " + prop.GetValue(entity) };
+    //                }
+    //            }
+    //            stackPanel.Children.Add(label);
+    //        }
+    //        expander.Content = stackPanel;
+    //        radioButton.Content = expander;
+    //        stackPanelMain.Children.Add(radioButton);
+    //        i++;
+    //    }
+    //    return stackPanelMain;
+    //}
+
+    //private void radioButton_Checked(object sender, RoutedEventArgs e)
+    //{
+    //    //надо по выбранному checkbox понять у какого элемента он был установлен, например, у какой експедиции. 
+    //    //по этой експедиции найти все дни и вывести их таким же образом в StackPanel - StPDays
+    //}
+
+    //private void button_Click(object sender, RoutedEventArgs e)
+    //{
+    //    var test = new ClassTest() { Expiditions = new List<Expedition>()
+    //    {
+    //        new Expedition() {Name = "111", Latitude =  12},
+    //        new Expedition { Name = "222", Latitude = 13}
+    //    } };
+    //    this.DataContext = test;
+    //}
 }
+

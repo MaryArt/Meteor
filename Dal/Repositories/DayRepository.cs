@@ -23,7 +23,11 @@ namespace Dal.Repositories
 
         public Day Get(int id)
         {
-            return _myContext.Days.Find(id);
+            var day = _myContext.Days.Find(id);
+            
+            //_myContext.Entry(day)
+            return day;
+
         }
 
         public void Create(Day state)

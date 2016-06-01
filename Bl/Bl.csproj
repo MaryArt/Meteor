@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneralReportItem.cs" />
+    <Compile Include="Process.cs" />
     <Compile Include="Services\DayService.cs" />
     <Compile Include="Services\ExpeditionsService.cs" />
     <Compile Include="Services\GroupService.cs" />

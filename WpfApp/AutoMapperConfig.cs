@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bl;
 using Model;
 using WpfApp.ViewModel;
+using WpfApp.ViewModel.Entity;
+using WpfApp.ViewModel.Process;
+
 namespace WpfApp
 {
     public class AutoMapperConfig
@@ -16,7 +20,7 @@ namespace WpfApp
             Mapper.CreateMap<Group, GroupViewModel>();
             Mapper.CreateMap<State, StateViewModel>();
             Mapper.CreateMap<Group_Person, Group_PersonViewModel>();
-            Mapper.CreateMap<Group,GroupViewModel>();
+            Mapper.CreateMap<Group, GroupViewModel>();
 
             Mapper.CreateMap<Expedition, ExpeditionViewModel>();
             Mapper.CreateMap<Day, DayViewModel>()
@@ -35,6 +39,11 @@ namespace WpfApp
             Mapper.CreateMap<IntervalViewModel, Interval>()
                 .ForMember("TimeBegin", opt => opt.MapFrom(c => Convert.ToDateTime(c.TimeBegin)))
                 .ForMember("TimeEnd", opt => opt.MapFrom(c => Convert.ToDateTime(c.TimeBegin)));
+
+
+
+
+            Mapper.CreateMap<GeneralReportItem,GeneralReportItemViewModel>();
         }
     }
 }

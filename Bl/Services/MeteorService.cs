@@ -29,5 +29,25 @@ namespace Bl.Services
             var meteors = interval.Meteors;
             return meteors;
         }
+
+        public int GetGeneralCountOfMeteorByDay(Day day)
+        {
+            //var count = Database.Meteors.Find(x => x.Interval.Day.Id == day.Id).Count();
+            var count = 0;
+            foreach (var interval in day.Intervals)
+            {
+                count += interval.Meteors.Count;
+            }
+            return count;
+        }
+        public int GetRadiantCountOfMeteorByDay(Day day, string source)
+        {
+            var count = 0;
+            foreach (var interval in day.Intervals)
+            {
+                count += (interval.Meteors.Where(m => m.Source == source)).Count();
+            }
+            return count;
+        }
     }
 }

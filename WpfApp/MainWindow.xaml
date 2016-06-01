@@ -140,7 +140,7 @@
                             <Button x:Name="ViewAllGroups" Content="Показать все" Width="100" HorizontalAlignment ="Left" Click="ViewAllGroups_Click" />
                             <Button x:Name="AddGroup" Content="Добавить" Width="245" VerticalAlignment="Top" HorizontalAlignment="Right"/>
                         </Grid>
-                        
+
                     </StackPanel>
 
                     <!--Метеоры-->
@@ -329,8 +329,65 @@
             </TabItem>
 
 
-            <TabItem Header="Обработка">
+            <TabItem Header="Обработка" >
                 <Grid Background="#FFE5E5E5">
+                    <!--Экспедиции-->
+                    <StackPanel Width="255" Margin="10,10,0,0" Height="491" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Выбор обьекта обработки"/></TextBlock>
+                        <ListBox  ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpeditionProcess, Mode=OneWayToSource}" Height="469" VerticalAlignment="Top">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander Header="{Binding Name}" Width="240">
+                                        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=OneWayToSource}" Margin="15,0,0,0" HorizontalAlignment="Left" Width="205" Height="Auto" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Expander Header="{Binding Date}">
+                                                        <ListBox ItemsSource="{Binding Intervals}" Margin="15,0,0,0" SelectedItem="{Binding SelectedInterval, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
+                                                            <ListBox.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <TextBlock Text="{Binding Name}" ></TextBlock>
+                                                                </DataTemplate>
+                                                            </ListBox.ItemTemplate>
+                                                        </ListBox>
+                                                    </Expander>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Expander>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+
+
+                    <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="491" Margin="270,10,0,0" VerticalAlignment="Top" Width="561">
+                        <TabItem Header="Первичная обработка">
+                            <Grid Background="#FFE5E5E5" >
+                                <Button x:Name="CalculateGeneralReport" Content="Расчитать" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75" Click="CalculateGeneralReport_Click"/>
+                                <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,15,511,0"><Run Text="Поток"/></TextBlock>
+                                <ComboBox Height="23" Margin="10,32,411,408" ItemsSource="{Binding Collections.Constellations}"/>
+                                <StackPanel Width="396" Margin="149,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                                    <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Общая сводка"/></TextBlock>
+                                    <ListView ItemsSource="{Binding Report.GeneralReportItems, Mode=TwoWay}" HorizontalAlignment="Stretch" Width="Auto" Margin="0,5">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn   Header="Дата" DisplayMemberBinding="{Binding DateStr}"/>
+                                                <GridViewColumn   Header="Читсое время" DisplayMemberBinding="{Binding ClearTime}"/>
+                                                <GridViewColumn   Header="Все" DisplayMemberBinding="{Binding  GeneralCount}"/>
+                                                <GridViewColumn   Header="Поточные" DisplayMemberBinding="{Binding  RadiantCount}"/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </TabItem>
+                        <TabItem Header="TabItem">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                    </TabControl>
+
 
                 </Grid>
             </TabItem>
