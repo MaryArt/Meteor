@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfApp.NewExpedition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        xmlns:viewModel="clr-namespace:WpfApp.ViewModel"
+        mc:Ignorable="d"
+        Title="NewExpedition" Height="167.161" Width="300">
+    <Window.DataContext>
+        <viewModel:NewExpeditionViewModel/>
+    </Window.DataContext>
+    <Grid  Width="290">
+        <Grid DataContext="{Binding NewExpedition}" Height="86" Margin="10,10,10,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Название:  " />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Цель:  " />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Широта:  " />
+
+            <TextBox Grid.Row="0" Grid.Column="1" Height="22" Text="{Binding Name , Mode=TwoWay}" />
+            <TextBox Grid.Row="1" Grid.Column="1" Height="22" Text="{Binding Mission , Mode=TwoWay}" />
+            <TextBox Grid.Row="2" Grid.Column="1" Height="22" Text="{Binding Latitude , Mode=TwoWay}" />
+        </Grid>
+        <Button x:Name="button" Content="Сохранить" HorizontalAlignment="Center" Width="76" Height="20" Margin="102,106,112,10" 
+                CommandParameter="{Binding NewExpedition}" Click="button_Click" />
+    </Grid>
+</Window>

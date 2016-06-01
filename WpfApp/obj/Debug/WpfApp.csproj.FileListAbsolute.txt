@@ -1,4 +1,3 @@
-G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\UserControl1.g.cs
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\App.g.cs
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\WpfApp_MarkupCompile.cache
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\WpfApp_MarkupCompile.lref
@@ -20,7 +19,6 @@ G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\Debug\en\microsoft.expression.util
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\MainWindow.g.cs
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\MainWindow.baml
-G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\UserControl1.baml
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\WpfApp.g.resources
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\WpfApp.Properties.Resources.resources
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\WpfApp.csproj.GenerateResource.Cache
@@ -37,3 +35,5 @@ G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\Debug\EntityFramework.SqlServer.xm
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\Debug\EntityFramework.SqlServerCompact.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\Debug\System.Data.SqlServerCe.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\bin\Debug\EntityFramework.SqlServerCompact.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\NewExpedition.g.cs
+G:\WORK\METEORS\Diplom\prog\Meteor\WpfApp\obj\Debug\NewExpedition.baml

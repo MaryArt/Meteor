@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Services\DayService.cs" />
     <Compile Include="Services\ExpeditionsService.cs" />
+    <Compile Include="Services\GroupService.cs" />
     <Compile Include="Services\IntervalService.cs" />
     <Compile Include="Services\MagnitudeService.cs" />
     <Compile Include="Services\MeteorService.cs" />

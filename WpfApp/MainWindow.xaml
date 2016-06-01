@@ -56,7 +56,7 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button x:Name="AddExpedition" Content="Добавить"/>
+                        <Button x:Name="AddExpedition" Content="Добавить" Click="AddExpedition_Click"/>
                     </StackPanel>
 
                     <!--Дни-->
@@ -131,30 +131,32 @@
                                                     <GridViewColumn Header="Программа" DisplayMemberBinding="{Binding Program}"/>
                                                 </GridView>
                                             </ListView.View>
-
                                         </ListView>
-
                                     </Expander>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button x:Name="AddGroup" Content="Добавить"/>
+                        <Grid VerticalAlignment="Top">
+                            <Button x:Name="ViewAllGroups" Content="Показать все" Width="100" HorizontalAlignment ="Left" Click="ViewAllGroups_Click" />
+                            <Button x:Name="AddGroup" Content="Добавить" Width="245" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                        </Grid>
+                        
                     </StackPanel>
 
                     <!--Метеоры-->
-                    <StackPanel Width="600" Margin="10,192,0,10" HorizontalAlignment="Left" >
+                    <StackPanel Width="821" Margin="10,192,0,10" HorizontalAlignment="Left" >
                         <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Метеоры"/></TextBlock>
-                        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False">
+                        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False" Height="285">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="№">
+                                <DataGridTemplateColumn Header="№" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBox Text="{ Binding Number}"/>
+                                            <TextBox Text="{Binding Number}"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="T">
+                                <DataGridTemplateColumn Header="T" Width="2*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Time}"/>
@@ -162,7 +164,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="λ">
+                                <DataGridTemplateColumn Header="λ" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Length}"/>
@@ -170,7 +172,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="τ">
+                                <DataGridTemplateColumn Header="τ" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Duration}"/>
@@ -178,7 +180,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="ω">
+                                <DataGridTemplateColumn Header="ω" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Speed}"/>
@@ -186,7 +188,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="c">
+                                <DataGridTemplateColumn Header="c" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Color}"/>
@@ -194,7 +196,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="o">
+                                <DataGridTemplateColumn Header="o" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Contour}"/>
@@ -202,7 +204,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="Z">
+                                <DataGridTemplateColumn Header="Z" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Zenit}"/>
@@ -210,7 +212,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="P">
+                                <DataGridTemplateColumn Header="P" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding P}"/>
@@ -218,7 +220,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="P'">
+                                <DataGridTemplateColumn Header="P'" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding PPrime}"/>
@@ -226,7 +228,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="прим.">
+                                <DataGridTemplateColumn Header="прим." Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Notes}"/>
@@ -234,7 +236,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="S-λ">
+                                <DataGridTemplateColumn Header="S-λ" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding TraceLength}"/>
@@ -242,7 +244,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="S-τ">
+                                <DataGridTemplateColumn Header="S-τ" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding TraceDuration}"/>
@@ -250,7 +252,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="S-ω">
+                                <DataGridTemplateColumn Header="S-ω" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding TraceContour}"/>
@@ -258,7 +260,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="Поток">
+                                <DataGridTemplateColumn Header="Поток" Width="2*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Source}"/>
@@ -266,19 +268,19 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="Звездная вел." Width="*">
+                                <DataGridTemplateColumn Header="Звездная вел." Width="4*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <ListView ItemsSource="{Binding Magnitudes}">
                                                 <ListView.ItemsPanel>
                                                     <ItemsPanelTemplate>
-                                                        <StackPanel Orientation="Horizontal"></StackPanel>
+                                                        <StackPanel Orientation="Horizontal"/>
                                                     </ItemsPanelTemplate>
                                                 </ListView.ItemsPanel>
 
                                                 <ListView.ItemTemplate>
                                                     <DataTemplate>
-                                                        <TextBox Text="{Binding MagnitudeValue}"></TextBox>
+                                                        <TextBox Text="{Binding MagnitudeValue}"/>
                                                     </DataTemplate>
                                                 </ListView.ItemTemplate>
                                             </ListView>
@@ -292,7 +294,7 @@
                     </StackPanel>
 
                     <!--Наблюдатели-->
-                    <StackPanel Width="216" Margin="615,192,0,22" HorizontalAlignment="Left" >
+                    <!--<StackPanel Width="216" Margin="615,192,0,22" HorizontalAlignment="Left" >
                         <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Наблюдатели"/></TextBlock>
                         <DataGrid ItemsSource="{Binding People}" AutoGenerateColumns="False"  HorizontalAlignment="Left" Width="216"  VerticalAlignment="Top">
                             <DataGrid.Columns>
@@ -321,7 +323,7 @@
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
-                    </StackPanel>
+                    </StackPanel>-->
 
                 </Grid>
             </TabItem>

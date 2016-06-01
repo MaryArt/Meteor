@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using DalFake;
 using Dal;
 using Model;
+//using DalFake;
 
-namespace Bl
+namespace Bl.Services
 {
     public class ExpeditionService
     {
@@ -23,6 +21,13 @@ namespace Bl
             var expeditions = Database.Expeditions.GetAll().ToList();
             if (expeditions == null) { throw new ArgumentNullException("Expeditions not found", ""); }
             return expeditions;
+        }
+
+        public bool AddExpedition(Expedition expedition)
+        {
+            Database.Expeditions.Create(expedition);
+            Database.Save();
+            return true;
         }
     }
 }

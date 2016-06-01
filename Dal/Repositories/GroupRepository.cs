@@ -26,6 +26,10 @@ namespace Dal.Repositories
         {
             var group = _myContext.Groups.Find(id);
             _myContext.Entry(group).Collection(c => c.Group_People).Load();
+            foreach (var p in group.Group_People)
+            {
+                _myContext.Entry(p).Reference(c => c.Person).Load();
+            }
             return group;
         }
 

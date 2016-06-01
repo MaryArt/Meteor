@@ -16,6 +16,7 @@ namespace WpfApp
             Mapper.CreateMap<Group, GroupViewModel>();
             Mapper.CreateMap<State, StateViewModel>();
             Mapper.CreateMap<Group_Person, Group_PersonViewModel>();
+            Mapper.CreateMap<Group,GroupViewModel>();
 
             Mapper.CreateMap<Expedition, ExpeditionViewModel>();
             Mapper.CreateMap<Day, DayViewModel>()

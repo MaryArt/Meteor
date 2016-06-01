@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using DalFake;
 using Dal;
 using Model;
+//using DalFake;
 
-namespace Bl
+namespace Bl.Services
 {
     public class MeteorService
     {

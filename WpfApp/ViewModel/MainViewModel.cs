@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using AutoMapper;
 using Bl;
+using Bl.Services;
 using Microsoft.Practices.Prism.Commands;
 using Model;
 
@@ -31,6 +32,7 @@ namespace WpfApp.ViewModel
         private DayService _dayService;
         private IntervalService _intervalService;
         private MeteorService _meteorService;
+        private GroupService _groupService;
 
         public List<ExpeditionViewModel> Expiditions
         {
@@ -101,7 +103,14 @@ namespace WpfApp.ViewModel
             {
                 _selectedExpedition = value;
                 OnPropertyChanged();
-                if (value == null) return;
+                if (value == null)
+                {
+                    Days = new List<DayViewModel>(); 
+                    Intervals = new List<IntervalViewModel>();
+                    Groups = new List<GroupViewModel>();
+                    Meteors = new List<MeteorViewModel>();
+                    return; 
+                }
                 Days = Mapper.Map<List<DayViewModel>>(_dayService.GetAllDaysByExpeditionId(value.Id));
             }
         }
@@ -115,7 +124,13 @@ namespace WpfApp.ViewModel
             {
                 _selectedDay = value;
                 OnPropertyChanged();
-                if (value == null) return;
+                if (value == null)
+                {
+                    Intervals = new List<IntervalViewModel>();
+                    Groups = new List<GroupViewModel>();
+                    Meteors = new List<MeteorViewModel>();
+                    return;
+                }
                 var intervals = _intervalService.GetAllIntervalsByDayId(value.Id);
                 Intervals = Mapper.Map<List<IntervalViewModel>>(intervals);
             }
@@ -128,11 +143,17 @@ namespace WpfApp.ViewModel
             {
                 _selectedInterval = value;
                 OnPropertyChanged();
-                if (value == null) return;
+                if (value == null)
+                {
+                    Groups = new List<GroupViewModel>();
+                    Meteors = new List<MeteorViewModel>();
+                    return;
+                };
                 var meteors = _meteorService.GetMeteorsByInterval(value.Id);
                 Meteors = Mapper.Map<List<MeteorViewModel>>(meteors);
-                var group = value.Group;
-                Groups = new List<GroupViewModel>(1) {group};
+                var group = _groupService.GetGroupById(value.Group.Id);
+                var groupView = Mapper.Map <GroupViewModel>(group);
+                Groups = new List<GroupViewModel>(1) {groupView};
             }
         }
 
@@ -219,6 +240,7 @@ namespace WpfApp.ViewModel
             _dayService = new DayService();
             _intervalService = new IntervalService();
             _meteorService = new MeteorService();
+            _groupService = new GroupService();
         }
 
 

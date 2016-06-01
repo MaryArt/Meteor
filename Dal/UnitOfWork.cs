@@ -17,6 +17,7 @@ namespace Dal
         private MagnitudeRepository _magnitudeRepository;
         private DayRepository _dayRepository;
         private IntervalRepository _intervalRepository;
+        private GroupRepository _groupRepository;
 
         public UnitOfWork()
         {
@@ -47,6 +48,11 @@ namespace Dal
         public IRepository<Interval> Intervals
         {
             get { return _intervalRepository ?? (_intervalRepository = new IntervalRepository(_myContext)); }
+        }
+
+        public IRepository<Group> Groups
+        {
+            get { return _groupRepository ?? (_groupRepository = new GroupRepository(_myContext)); }
         }
 
         public void Save()

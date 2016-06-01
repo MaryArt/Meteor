@@ -28,7 +28,7 @@ namespace Dal
         }
     }
 
-    public class DbInitializerMeteor : System.Data.Entity.DropCreateDatabaseAlways<MeteorContext>
+    public class DbInitializerMeteor : System.Data.Entity.CreateDatabaseIfNotExists<MeteorContext>
     {
         protected override void Seed(MeteorContext context)
         {
@@ -70,7 +70,7 @@ namespace Dal
             });
 
             var person = context.People.Add(new Person() { Name = "Иван", Surname = "Иванов", MiddleName = "Иванович" });
-            var group_person = context.Group_Person.Add(new Group_Person() { Group = group, Person = person, Role = "Наблюдатель", Program = "Квалифицированный счет" });
+            var group_person = context.Group_Person.Add(new Group_Person() { Group = group, Person = person, Role = "Наблюдатель", Program = "КC" });
             var state = context.States.Add(new State()
             {
                 Person = person,
