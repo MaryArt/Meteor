@@ -14,5 +14,7 @@ namespace Model
 
         [Required]
         public string Name { get; set; }
+
+        public virtual ICollection<Group_Person> Group_People { get; set; }
     }
 }

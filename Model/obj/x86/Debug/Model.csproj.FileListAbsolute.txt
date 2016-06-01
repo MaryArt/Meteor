@@ -7,3 +7,4 @@ G:\WORK\METEORS\Diplom\prog\Meteor\Model\bin\x86\Debug\Microsoft.Practices.Prism
 G:\WORK\METEORS\Diplom\prog\Meteor\Model\bin\x86\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
 G:\WORK\METEORS\Diplom\prog\Meteor\Model\bin\x86\Debug\Microsoft.Practices.Prism.Mvvm.xml
 G:\WORK\METEORS\Diplom\prog\Meteor\Model\bin\x86\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+G:\WORK\METEORS\Diplom\prog\Meteor\Model\obj\x86\Debug\Model.csprojResolveAssemblyReference.cache

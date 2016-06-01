@@ -70,7 +70,7 @@ namespace Dal
             });
 
             var person = context.People.Add(new Person() { Name = "Иван", Surname = "Иванов", MiddleName = "Иванович" });
-            var group_person = context.Group_Person.Add(new Group_Person() { Group = group, Person = person, Role = "Наблюдатель" });
+            var group_person = context.Group_Person.Add(new Group_Person() { Group = group, Person = person, Role = "Наблюдатель", Program = "Квалифицированный счет" });
             var state = context.States.Add(new State()
             {
                 Person = person,

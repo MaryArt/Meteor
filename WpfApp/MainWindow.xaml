@@ -6,282 +6,333 @@
     x:Class="WpfApp.MainWindow"
     xmlns:viewmodel ="clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="672.761" Width="953.961">
+        Title="MainWindow" Height="589.761" Width="874.961">
     <Window.DataContext>
         <viewmodel:MainViewModel/>
     </Window.DataContext>
     <Grid x:Name="RootGrid"  >
-        <ListBox ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" Margin="10,169,0,0" HorizontalAlignment="Left" Width="204" Height="155" VerticalAlignment="Top">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Expander Header="{Binding Name}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Mission:" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Latitude:" />
-
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Mission}" />
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Latitude}" />
-
-                            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Hello" 
-                                    Command="{Binding Path=DataContext.BestCommandEver, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}" />
-                        </Grid>
-                    </Expander>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" Margin="219,169,0,0" HorizontalAlignment="Left" Width="80" Height="155" VerticalAlignment="Top">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Date}"></TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <ListBox ItemsSource="{Binding Intervals}" SelectedItem="{Binding SelectedInterval }" Margin="304,169,0,0" HorizontalAlignment="Left" Width="177" Height="155" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Expander Header="{Binding Name}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Начало:" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Конец:" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Облачность:" />
-                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Фаза Луны:" />
-                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Высота Луны:" />
-                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Высота Радианта:" />
-
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TimeBegin}" />
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TimeEnd}" />
-                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Clouds}" />
-                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Moon}" />
-                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding MoonHeight}" />
-                            <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding RadiantHeight}" />
-
-                        </Grid>
-                    </Expander>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False" Margin="10,329,0,10" HorizontalAlignment="Left" Width="585">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="№">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{ Binding Number}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="T">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Time}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="λ">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Length}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="τ">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Duration}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="ω">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Speed}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="c">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Color}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="o">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Contour}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="Z">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Zenit}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="P">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding P}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="P'">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding PPrime}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="прим.">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Notes}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="S-λ">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding TraceLength}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="S-τ">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding TraceDuration}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="S-ω">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding TraceContour}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="Поток">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Source}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn Header="Звездная вел.">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <ListView ItemsSource="{Binding Magnitudes}" >
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBox Text="{Binding MagnitudeValue}"></TextBox>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
 
 
-            </DataGrid.Columns>
-        </DataGrid>
-        <ListBox ItemsSource="{Binding Groups}" SelectedItem="" Margin="486,169,0,0" HorizontalAlignment="Left" Width="345" Height="155" VerticalAlignment="Top">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Expander Header="{Binding Name}" Width="329">
-                        <ListView ItemsSource="{Binding Group_People}" SelectedItem="{}" HorizontalAlignment="Stretch" Width="Auto" Margin="5,5,0,5">
-                            <ListView.ItemTemplate>
+
+
+
+
+
+
+
+
+        <TabControl x:Name="tabControl"  HorizontalAlignment="Left" Margin="10,10,0,10" Width="847">
+            <TabItem Header="Наблюдения">
+                <Grid Background="#FFE5E5E5">
+
+                    <!--Экспедиции-->
+                    <StackPanel Width="204" Margin="10,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Экспедиции"/></TextBlock>
+                        <ListBox  ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="204" Height="140" VerticalAlignment="Top">
+                            <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Person}"  Margin="0,0,5,0"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Role}"    Margin="0,0,5,0"/>
-                                        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Program}" Margin="0,0,5,0" />
-                                    </Grid>
+                                    <Expander Header="{Binding Name}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Цель:  " />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Широта:  " />
+
+                                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Mission}" />
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Latitude}" />
+
+                                            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Изменить" 
+                    							Command="{Binding DataContext.BestCommandEver, RelativeSource={RelativeSource AncestorType={x:Type ListBox}, Mode=FindAncestor}}" CommandParameter="{Binding}" />
+                                        </Grid>
+                                    </Expander>
                                 </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button x:Name="AddExpedition" Content="Добавить"/>
+                    </StackPanel>
 
-                    </Expander>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                    <!--Дни-->
+                    <StackPanel Width="80" Margin="219,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Дни"/></TextBlock>
+                        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" HorizontalAlignment="Left" Width="80" Height="140" VerticalAlignment="Top">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Date}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button x:Name="AddDay" Content="Добавить"/>
+                    </StackPanel>
 
-        <DataGrid ItemsSource="{Binding People}" AutoGenerateColumns="False" Margin="600,329,0,10" HorizontalAlignment="Left" Width="231">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Фамилия">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{ Binding Surname}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                    <!--Интервалы-->
+                    <StackPanel Width="177" Margin="304,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Интервалы"/></TextBlock>
+                        <ListBox ItemsSource="{Binding Intervals}" SelectedItem="{Binding SelectedInterval }" HorizontalAlignment="Left" Width="177" Height="140" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander Header="{Binding Name}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
 
-                <DataGridTemplateColumn Header="Имя">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{ Binding Name}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Начало:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Конец:" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Облачность:" />
+                                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Фаза Луны:" />
+                                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Высота Луны:" />
+                                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Высота Радианта:" />
 
-                <DataGridTemplateColumn Header="№">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{ Binding MiddleName}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+                                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding TimeBegin}" />
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TimeEnd}" />
+                                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Clouds}" />
+                                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Moon}" />
+                                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding MoonHeight}" />
+                                            <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding RadiantHeight}" />
+
+                                        </Grid>
+                                    </Expander>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button x:Name="AddInterval" Content="Добавить"/>
+                    </StackPanel>
+
+                    <!--Группы-->
+                    <StackPanel Width="345" Margin="486,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Группы"/></TextBlock>
+                        <ListBox ItemsSource="{Binding Groups}" SelectedItem=""  HorizontalAlignment="Left" Width="345" Height="140" VerticalAlignment="Top">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander Header="{Binding Name}" Width="329">
+                                        <ListView ItemsSource="{Binding Group_People}" SelectedItem="{}" HorizontalAlignment="Stretch" Width="Auto" Margin="5,5,0,5">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding Person}"/>
+                                                    <GridViewColumn Header="Роль" DisplayMemberBinding="{Binding Role}"/>
+                                                    <GridViewColumn Header="Программа" DisplayMemberBinding="{Binding Program}"/>
+                                                </GridView>
+                                            </ListView.View>
+
+                                        </ListView>
+
+                                    </Expander>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button x:Name="AddGroup" Content="Добавить"/>
+                    </StackPanel>
+
+                    <!--Метеоры-->
+                    <StackPanel Width="600" Margin="10,192,0,10" HorizontalAlignment="Left" >
+                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Метеоры"/></TextBlock>
+                        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="№">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{ Binding Number}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="T">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Time}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="λ">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Length}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="τ">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Duration}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="ω">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Speed}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="c">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Color}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="o">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Contour}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Z">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Zenit}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="P">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding P}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="P'">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding PPrime}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="прим.">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Notes}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="S-λ">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding TraceLength}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="S-τ">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding TraceDuration}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="S-ω">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding TraceContour}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Поток">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Source}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Звездная вел." Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ListView ItemsSource="{Binding Magnitudes}">
+                                                <ListView.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Horizontal"></StackPanel>
+                                                    </ItemsPanelTemplate>
+                                                </ListView.ItemsPanel>
+
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBox Text="{Binding MagnitudeValue}"></TextBox>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+
+                    <!--Наблюдатели-->
+                    <StackPanel Width="216" Margin="615,192,0,22" HorizontalAlignment="Left" >
+                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Наблюдатели"/></TextBlock>
+                        <DataGrid ItemsSource="{Binding People}" AutoGenerateColumns="False"  HorizontalAlignment="Left" Width="216"  VerticalAlignment="Top">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Фамилия" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{ Binding Surname}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Имя" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{ Binding Name}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Отчество" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{ Binding MiddleName}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Обработка">
+                <Grid Background="#FFE5E5E5">
+
+                </Grid>
+            </TabItem>
+        </TabControl>
 
 
     </Grid>

@@ -23,7 +23,9 @@ namespace Dal.Repositories
 
         public Group_Person Get(int id)
         {
-            return _myContext.Group_Person.Find(id);
+            var groupPerson = _myContext.Group_Person.Find(id);
+            _myContext.Entry(groupPerson).Reference(c=> c.Person).Load();
+            return groupPerson;
         }
 
         public void Create(Group_Person state)

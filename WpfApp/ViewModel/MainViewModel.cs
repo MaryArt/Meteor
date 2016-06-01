@@ -131,6 +131,8 @@ namespace WpfApp.ViewModel
                 if (value == null) return;
                 var meteors = _meteorService.GetMeteorsByInterval(value.Id);
                 Meteors = Mapper.Map<List<MeteorViewModel>>(meteors);
+                var group = value.Group;
+                Groups = new List<GroupViewModel>(1) {group};
             }
         }
 
