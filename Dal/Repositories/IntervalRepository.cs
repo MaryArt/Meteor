@@ -24,11 +24,12 @@ namespace Dal.Repositories
 
         public Interval Get(int id)
         {
-            var day = _myContext.Intervals.Find(id);
-            _myContext.Entry(day).Reference(c=>c.Group).Load();
+            var interval = _myContext.Intervals.Find(id);
+            //TODO: interval == null
+            _myContext.Entry(interval).Reference(c=>c.Group).Load();
             //_myContext.Entry(day).Collection(c => c.Group.Group_People).Load();
-            _myContext.Entry(day).Collection(c => c.Meteors).Load();
-            return day;
+            _myContext.Entry(interval).Collection(c => c.Meteors).Load();
+            return interval;
         }
 
         public void Create(Interval state)

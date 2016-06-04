@@ -20,5 +20,27 @@ namespace Bl.Services
             var expedition = Database.Expeditions.Get(expeditionId);
             return expedition.Days;
         }
+
+        public int GetCountOfMeteorByDay(int id)
+        {
+            var day = Database.Days.Get(id);
+            var count = 0;
+            foreach (var interval in day.Intervals)
+            {
+                count += interval.Meteors.Count;
+            }
+            return count;
+        }
+
+        public double GetClearTimeByDay(int id)
+        {
+            var day = Database.Days.Get(id);
+            double clearTime = 0;
+            foreach (var interval in day.Intervals)
+            {
+                clearTime += interval.TimeEnd.Subtract(interval.TimeBegin).TotalHours;
+            }
+            return clearTime;
+        }
     }
 }

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Model;
 using Bl;
 using System.ComponentModel.DataAnnotations;
+using System.Windows.Forms.DataVisualization.Charting;
 using WpfApp.ViewModel;
 using AutoMapper;
 using Bl.Services;
@@ -36,12 +37,20 @@ namespace WpfApp
         {
             InitializeComponent();
 
+            chart.ChartAreas.Add(new ChartArea("Default"));
+
+            // Добавим линию, и назначим ее в ранее созданную область "Default"
+            chart.Series.Add(new Series("Series1"));
+            chart.Series["Series1"].ChartArea = "Default";
+            chart.Series["Series1"].ChartType = SeriesChartType.Line;
+
             AutoMapperConfig.RegisterMappings();
             Load();
         }
 
         private void Load()
         {
+            _groupService = new GroupService();
             _expeditionService = new ExpeditionService();
             var expiditions = _expeditionService.GetAllExpeditions();
             var expeditionsViewModel = Mapper.Map<List<ExpeditionViewModel>>(expiditions);
@@ -88,6 +97,171 @@ namespace WpfApp
             {
                 GeneralReportItems = Mapper.Map<List<GeneralReportItemViewModel>>(reportItems)
             };
+        }
+
+        private void CalculateMagnitudeChart_Click(object sender, RoutedEventArgs e)
+        {
+            var mainModel = (MainViewModel)this.DataContext;
+            if (mainModel.SelectedExpeditionProcess == null)
+            {
+                MessageBox.Show("Выберите экспедицию в списке слева");
+                return;
+            }
+            var id = mainModel.SelectedExpeditionProcess.Id;
+
+            // добавим данные линии
+            int[] axisXData;
+            int[] axisYData;
+
+            _process.CalculateMagnitudeChart(id, out axisXData,out axisYData);
+            chart.Series["Series1"].Points.Clear();
+            chart.Series["Series1"].Points.DataBindXY(axisXData, axisYData);
+
+        }
+
+        private void CalculateDencityOfMeteorShower_Click(object sender, RoutedEventArgs e)
+        {
+            var m = 0;
+            var Z = 0;
+            double h = 0;
+            if (!ConvertToNumber(this.txbMagnitude.Text, out m)) return;
+            if (!ConvertToNumber(this.txbRadiantHeight.Text, out h)) return;
+            if (!ConvertToNumber(this.txbZenit.Text, out Z)) return;
+            //var source = Convert.ToString(txbSource.SelectedItem);
+            var source = "per";
+            var mainModel = (MainViewModel)this.DataContext;
+            if (mainModel.SelectedExpeditionProcess == null)
+            {
+                MessageBox.Show("Выберите интервал в списке слева");
+                return;
+            }
+            var id = mainModel.SelectedExpeditionProcess.Id;
+            var dencity = _process.GetDencityOfMeteorShower(id, h, m, Z, source);
+            _process.Dencity = dencity;
+            DencityResult.Text = Convert.ToString(dencity);
+        }
+
+        private void CalcAndleVelocity_Click(object sender, RoutedEventArgs e)
+        {
+            var mainModel = (MainViewModel)this.DataContext;
+            if (mainModel.SelectedExpeditionProcess == null)
+            {
+                MessageBox.Show("Выберите экспедицию в списке слева");
+                return;
+            }
+            var id = mainModel.SelectedExpeditionProcess.Id;
+            
+            var m = 0;
+            var Z = 0;
+            
+            if (!ConvertToNumber(this.txbMagnitudeV.Text, out m)) return;
+            if (!ConvertToNumber(this.txbZenitV.Text, out Z)) return;
+            //var source = Convert.ToString(txbSource.SelectedItem);
+            var source = "per";
+            double w = 0;
+            w = _process.GetAngleVelocity(id, m,Z,source);
+            _process.AngleVelocity5Point = w; //TODO: нельзя так присваевать это могут быть разные расчеты
+            this.txbAngleVelocity.Text = _process.AngleVelocity.ToString();
+        }
+
+        public bool ConvertToNumber(string str, out int i)
+        {
+            if (!int.TryParse(str, out i))
+            {
+                MessageBox.Show("Неверный ввод параметра!");
+                return false;
+            }
+            return true;
+        }
+
+        public bool ConvertToNumber(string str, out double i)
+        {
+            if (!double.TryParse(str, out i))
+            {
+                MessageBox.Show("Неверный ввод параметра!");
+                return false;
+            }
+            return true;
+        }
+
+        private void CalcGeoCentrVelocity_Click(object sender, RoutedEventArgs e)
+        {
+            var v = _process.GetGeoCentrVelocity(_process.AngleVelocity);
+            _process.GeoCentrVelocity = v;
+            txbGeoCentrVelocity.Text = v.ToString();
+        }
+
+        private void CalcSpaceDencity_Click(object sender, RoutedEventArgs e)
+        {
+            var r = 0;
+            if (!ConvertToNumber(txbDistanceToEarthCentr.Text, out r)) return;
+            if (_process.Dencity == 0 || _process.GeoCentrVelocityKmCh == 0)
+            {
+                MessageBox.Show(
+                    "Для расчета пространственной плотности, требуется расчитать плотность потока и геоцентрическую скорость");
+            }
+            var ro = _process.GetSpaceDencity(_process.Dencity, _process.GeoCentrVelocityKmCh);
+            txbSpaceDencity.Text = ro.ToString();
+        }
+
+        /// <summary>
+        /// Расчет активности метеорного потока
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalcFrequency_Click(object sender, RoutedEventArgs e)
+        {
+            var mainModel = (MainViewModel)this.DataContext;
+            if (mainModel.SelectedExpeditionProcess == null)
+            {
+                MessageBox.Show("Выберите экспедицию в списке слева");
+                return;
+            }
+            var id = mainModel.SelectedExpeditionProcess.Id;
+
+            double d = 0;
+            double t = 0;
+            if (!ConvertToNumber(this.txbRadiantDelta.Text, out d)) return;
+            if (!ConvertToNumber(this.txbRadiantHourAngle.Text, out t)) return;
+
+            var n = _process.GetFrequency(id, d, t);
+            txbFrequency.Text = n.ToString();
+        }
+
+        private void CalcAbsoluteMagnitude_Click(object sender, RoutedEventArgs e)
+        {
+            var mainModel = (MainViewModel)this.DataContext;
+            if (mainModel.SelectedExpeditionProcess == null)
+            {
+                MessageBox.Show("Выберите экспедицию в списке слева");
+                return;
+            }
+            var id = mainModel.SelectedExpeditionProcess.Id;
+
+            double m0 = 0;
+            double h = 0;
+            if (! ConvertToNumber(txbRadiantHeightMagnitude.Text, out h)) return;
+            m0 = _process.GetAbsoluteMagnitude(id, h);
+            txbAbsoluteMagnitude.Text = m0.ToString();
+        }
+
+        private void CalculateLuminosityChart_Click(object sender, RoutedEventArgs e)
+        {
+            var mainModel = (MainViewModel)this.DataContext;
+            if (mainModel.SelectedExpeditionProcess == null)
+            {
+                MessageBox.Show("Выберите экспедицию в списке слева");
+                return;
+            }
+            var id = mainModel.SelectedExpeditionProcess.Id;
+
+            // добавим данные линии
+            int[] axisXData;
+            int[] axisYData;
+
+            _process.CalculateMagnitudeChart(id, out axisXData, out axisYData);
+            chart.Series["Series1"].Points.Clear();
+            chart.Series["Series1"].Points.DataBindXY(axisXData, axisYData);
         }
     }
 

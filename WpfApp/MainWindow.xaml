@@ -3,36 +3,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
     x:Class="WpfApp.MainWindow"
     xmlns:viewmodel ="clr-namespace:WpfApp.ViewModel"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="589.761" Width="874.961">
+    xmlns:dvc="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+    mc:Ignorable="d"
+        Title="Meteor" Height="589.761" Width="874.961"
+    Icon="icon.ico">
     <Window.DataContext>
         <viewmodel:MainViewModel/>
     </Window.DataContext>
     <Grid x:Name="RootGrid"  >
 
-
-
-
-
-
-
-
-
-
-        <TabControl x:Name="tabControl"  HorizontalAlignment="Left" Margin="10,10,0,10" Width="847">
+        <TabControl x:Name="tabControl" Margin="10">
             <TabItem Header="Наблюдения">
                 <Grid Background="#FFE5E5E5">
 
                     <!--Экспедиции-->
-                    <StackPanel Width="204" Margin="10,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
-                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Экспедиции"/></TextBlock>
-                        <ListBox  ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="204" Height="140" VerticalAlignment="Top">
+                    <Grid Width="204" Margin="10,10,0,0" Height="205" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Экспедиции"/></TextBlock>
+                        <ListBox Grid.Row="1" ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpedition, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="204" Height="161" VerticalAlignment="Top">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Expander Header="{Binding Name}">
-                                        <Grid>
+                                        <Grid Margin="25,0,0,0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition />
@@ -49,33 +50,49 @@
                                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Mission}" />
                                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Latitude}" />
 
-                                            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Изменить" 
-                    							Command="{Binding DataContext.BestCommandEver, RelativeSource={RelativeSource AncestorType={x:Type ListBox}, Mode=FindAncestor}}" CommandParameter="{Binding}" />
+                                            <!--<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Изменить" 
+                    							Command="{Binding DataContext.BestCommandEver, RelativeSource={RelativeSource AncestorType={x:Type ListBox}, Mode=FindAncestor}}" CommandParameter="{Binding}" />-->
                                         </Grid>
                                     </Expander>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button x:Name="AddExpedition" Content="Добавить" Click="AddExpedition_Click"/>
-                    </StackPanel>
+                        <Grid Grid.Row="2" VerticalAlignment="Top">
+                            <Button x:Name="AddExpedition" Content="Добавить" Width="100" HorizontalAlignment ="Left" Click="AddExpedition_Click" />
+                            <Button x:Name="EditExpedition" Content="Редактировать" Width="104" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </Grid>
 
                     <!--Дни-->
-                    <StackPanel Width="80" Margin="219,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
-                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Дни"/></TextBlock>
-                        <ListBox ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" HorizontalAlignment="Left" Width="80" Height="140" VerticalAlignment="Top">
+                    <Grid Width="80" Margin="219,10,0,0" Height="205" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock  Grid.Row="0" Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Дни"/></TextBlock>
+                        <ListBox Grid.Row="1" ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay, Mode=TwoWay}" HorizontalAlignment="Left" Width="80" Height="161" VerticalAlignment="Top">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Date}"/>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button x:Name="AddDay" Content="Добавить"/>
-                    </StackPanel>
+                        <Grid  Grid.Row="2" VerticalAlignment="Top">
+                            <Button x:Name="AddDay" Content="Доб." Width="35" HorizontalAlignment ="Left" Click="ViewAllGroups_Click" />
+                            <Button x:Name="EditDay" Content="Редак." Width="45" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </Grid>
 
                     <!--Интервалы-->
-                    <StackPanel Width="177" Margin="304,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
-                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Интервалы"/></TextBlock>
-                        <ListBox ItemsSource="{Binding Intervals}" SelectedItem="{Binding SelectedInterval }" HorizontalAlignment="Left" Width="177" Height="140" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
+                    <Grid Width="177" Margin="304,10,0,0" Height="205" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Интервалы"/></TextBlock>
+                        <ListBox Grid.Row="1" ItemsSource="{Binding Intervals}" SelectedItem="{Binding SelectedInterval }" HorizontalAlignment="Left" Width="177" Height="161" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Expander Header="{Binding Name}">
@@ -113,13 +130,21 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button x:Name="AddInterval" Content="Добавить"/>
-                    </StackPanel>
+                        <Grid Grid.Row="2" VerticalAlignment="Top">
+                            <Button x:Name="AddInterval" Content="Добавить" Width="73" HorizontalAlignment ="Left" Click="ViewAllGroups_Click" />
+                            <Button x:Name="EditInterval" Content="Редактировать" Width="104" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </Grid>
 
                     <!--Группы-->
-                    <StackPanel Width="345" Margin="486,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
-                        <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Группы"/></TextBlock>
-                        <ListBox ItemsSource="{Binding Groups}" SelectedItem=""  HorizontalAlignment="Left" Width="345" Height="140" VerticalAlignment="Top">
+                    <Grid Width="345" Margin="486,10,0,0" Height="205" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock  Grid.Row="0" Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Группы"/></TextBlock>
+                        <ListBox Grid.Row="1" ItemsSource="{Binding Groups}" SelectedItem=""  HorizontalAlignment="Left" Width="345" Height="161" VerticalAlignment="Top">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Expander Header="{Binding Name}" Width="329">
@@ -136,17 +161,27 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Grid VerticalAlignment="Top">
-                            <Button x:Name="ViewAllGroups" Content="Показать все" Width="100" HorizontalAlignment ="Left" Click="ViewAllGroups_Click" />
-                            <Button x:Name="AddGroup" Content="Добавить" Width="245" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                        <Grid Grid.Row="2" VerticalAlignment="Top"  >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ViewAllGroups" Content="Показать все" Width="115" HorizontalAlignment ="Center" Click="ViewAllGroups_Click" />
+                            <!--<Grid Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="235" Grid.ColumnSpan="3" Margin="0,0,10,0">-->
+                            <Button Grid.Row="0" Grid.Column="1" x:Name="AddGroup" Content="Добавить" Width="115" HorizontalAlignment ="Center" Click="ViewAllGroups_Click" />
+                            <Button Grid.Row="0" Grid.Column="2" x:Name="EditGroup" Content="Редактировать" Width="115" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                            <!--</Grid>-->
                         </Grid>
-
-                    </StackPanel>
+                    </Grid>
 
                     <!--Метеоры-->
-                    <StackPanel Width="821" Margin="10,192,0,10" HorizontalAlignment="Left" >
+                    <Grid Margin="10,220,10,0">
                         <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Метеоры"/></TextBlock>
-                        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False" Height="285">
+                        <DataGrid ItemsSource="{Binding Meteors}" AutoGenerateColumns="False" VerticalAlignment="Stretch" Margin="0,22,0,5">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="№" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -260,7 +295,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="Поток" Width="2*">
+                                <DataGridTemplateColumn Header="Поток" Width="3*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBox Text="{Binding Source}"/>
@@ -268,7 +303,15 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTemplateColumn Header="Звездная вел." Width="4*">
+                                <DataGridTemplateColumn Header="m" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding AverageMagnitude}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <!--<DataGridTemplateColumn Header="Звездная вел." Width="4*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <ListView ItemsSource="{Binding Magnitudes}">
@@ -286,12 +329,12 @@
                                             </ListView>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                                </DataGridTemplateColumn>-->
 
 
                             </DataGrid.Columns>
                         </DataGrid>
-                    </StackPanel>
+                    </Grid>
 
                     <!--Наблюдатели-->
                     <!--<StackPanel Width="216" Margin="615,192,0,22" HorizontalAlignment="Left" >
@@ -342,7 +385,7 @@
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <Expander Header="{Binding Date}">
-                                                        <ListBox ItemsSource="{Binding Intervals}" Margin="15,0,0,0" SelectedItem="{Binding SelectedInterval, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
+                                                        <ListBox ItemsSource="{Binding Intervals}" Margin="15,0,0,0" SelectedItem="{Binding SelectedIntervalProcess, Mode=OneWayToSource}" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.465">
                                                             <ListBox.ItemTemplate>
                                                                 <DataTemplate>
                                                                     <TextBlock Text="{Binding Name}" ></TextBlock>
@@ -363,7 +406,7 @@
                     <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="491" Margin="270,10,0,0" VerticalAlignment="Top" Width="561">
                         <TabItem Header="Первичная обработка">
                             <Grid Background="#FFE5E5E5" >
-                                <Button x:Name="CalculateGeneralReport" Content="Расчитать" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75" Click="CalculateGeneralReport_Click"/>
+                                <Button x:Name="CalculateGeneralReport" Content="Рассчитать" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75" Click="CalculateGeneralReport_Click"/>
                                 <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,15,511,0"><Run Text="Поток"/></TextBlock>
                                 <ComboBox Height="23" Margin="10,32,411,408" ItemsSource="{Binding Collections.Constellations}"/>
                                 <StackPanel Width="396" Margin="149,10,0,0" Height="177" HorizontalAlignment="Left" VerticalAlignment="Top" >
@@ -380,17 +423,97 @@
                                     </ListView>
                                 </StackPanel>
 
+                                <StackPanel Width="535" Margin="10,192,0,0" Height="261" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                                    <Button x:Name="CalculateMagnitudeChart" Content="Построить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="CalculateMagnitudeChart_Click"/>
+                                    <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,0"><Run Text="Распределение метеоров по звездным величинам"/></TextBlock>
+                                    <WindowsFormsHost Height="219">
+                                        <dvc:Chart x:Name="chart"  />
+                                    </WindowsFormsHost>
+                                </StackPanel>
+
                             </Grid>
 
                         </TabItem>
-                        <TabItem Header="TabItem">
-                            <Grid Background="#FFE5E5E5"/>
+                        <TabItem Header="Угловая скорость" >
+                            <Grid Background="#FFE5E5E5">
+                                <Label x:Name="label" Content="Расчет средней зенитной угловой скорости:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label1" Content="Расчет геоцентрической скорости метеоров:" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label2" Content="Расчет активности метеорного потока:" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txbAngleVelocity" HorizontalAlignment="Left" Height="26" Margin="413,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98"/>
+                                <Label x:Name="label2_Copy1" Content="Угловая скорость" HorizontalAlignment="Left" Margin="305,44,0,0" VerticalAlignment="Top"/>
+                                <Button x:Name="CalcAndleVelocity" Content="Рассчитать" HorizontalAlignment="Left" Margin="40,144,0,0" VerticalAlignment="Top" Width="75" Click="CalcAndleVelocity_Click"/>
+                                <TextBox x:Name="txbGeoCentrVelocity" HorizontalAlignment="Left" Height="26" Margin="413,264,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98"/>
+                                <Label x:Name="label2_Copy2" Content="Геоцентрическая скорость" HorizontalAlignment="Left" Margin="251,264,0,0" VerticalAlignment="Top"/>
+                                <Button x:Name="calcGeoCentrVelocity" Content="Рассчитать" HorizontalAlignment="Left" Margin="40,270,0,0" VerticalAlignment="Top" Width="75" Click="CalcGeoCentrVelocity_Click"/>
+                                <TextBox x:Name="txbRadiantDelta" HorizontalAlignment="Left" Height="26" Margin="180,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="label2_Copy3" Content="Склонение радианта" HorizontalAlignment="Left" Margin="40,359,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txbFrequency" HorizontalAlignment="Left" Height="26" Margin="413,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="label2_Copy4" Content="Активность" HorizontalAlignment="Left" Margin="339,359,0,0" VerticalAlignment="Top"/>
+                                <Button x:Name="CalcFrequency" Content="Рассчитать" HorizontalAlignment="Left" Margin="40,421,0,0" VerticalAlignment="Top" Width="75" Click="CalcFrequency_Click"/>
+                                <TextBox x:Name="txbRadiantHourAngle" HorizontalAlignment="Left" Height="26" Margin="180,390,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="label2_Copy5" Content="Часовой угол радианта" HorizontalAlignment="Left" Margin="40,390,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txbMagnitudeV" HorizontalAlignment="Left" Height="25" Margin="148,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <TextBox x:Name="txbZenitV" HorizontalAlignment="Left" Height="25" Margin="148,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <ComboBox  x:Name="txbSourceV" Margin="148,44,273,394" ItemsSource="{Binding Collections.Constellations}"/>
+                                <Label  Content="Поток" HorizontalAlignment="Left" Margin="99,44,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Label  Content="До звезд.вел" HorizontalAlignment="Left" Margin="63,74,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Label  Content="Зенитное расст. (°)" HorizontalAlignment="Left" Margin="31,105,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Label x:Name="label2_Copy8" Content="°/c" HorizontalAlignment="Left" Margin="516,44,0,0" VerticalAlignment="Top" Width="29"/>
+                                <Label x:Name="label2_Copy" Content="км/c" HorizontalAlignment="Left" Margin="516,264,0,0" VerticalAlignment="Top" Width="39"/>
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem Header="Плотность потока">
+                            <Grid Background="#FFE5E5E5">
+                                <TextBox x:Name="txbMagnitude" HorizontalAlignment="Left" Height="25" Margin="156,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <TextBox x:Name="txbZenit" HorizontalAlignment="Left" Height="25" Margin="156,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <ComboBox  x:Name="txbSource" Margin="156,73,265,365" ItemsSource="{Binding Collections.Constellations}"/>
+                                <Label  Content="Поток" HorizontalAlignment="Left" Margin="107,73,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Label  Content="До звезд.вел" HorizontalAlignment="Left" Margin="71,103,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Label  Content="Зенитное расст.  (°)" HorizontalAlignment="Left" Margin="36,134,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Button x:Name="CalculateDencityOfMeteorShower" Content="Раcсчитать" HorizontalAlignment="Left" Margin="107,164,0,0" VerticalAlignment="Top" Width="75" Click="CalculateDencityOfMeteorShower_Click" Height="20"/>
+                                <TextBox x:Name="DencityResult" HorizontalAlignment="Left" Height="28" Margin="346,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <TextBlock  Text="Плотность потока до данной звездной величины"  TextWrapping="Wrap" HorizontalAlignment="Left" Margin="346,82,0,0" VerticalAlignment="Top" Height="40" Width="165"/>
+                                <Label x:Name="label3" Content="Расчет пространственной плотности метеорного роя до данной звездной величины:" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label7" Content="Расчет плотности метеорного потока:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txbDistanceToEarthCentr" HorizontalAlignment="Left" Height="26" Margin="156,269,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <TextBlock  Text="Расстояние от центра Земли до метеорной зоны"  TextWrapping="Wrap" HorizontalAlignment="Left" Margin="24,256,0,0" VerticalAlignment="Top" Height="45" Width="127"/>
+
+                                <TextBox x:Name="txbSpaceDencity" HorizontalAlignment="Left" Height="26" Margin="346,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="CalcSpaceDencity" Content="Рассчитать" HorizontalAlignment="Left" Margin="107,331,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.493,0.65" Click="CalcSpaceDencity_Click"/>
+                                <Label x:Name="label2_Copy9" Content="1/(км^2*ч)" HorizontalAlignment="Left" Margin="471,127,0,0" VerticalAlignment="Top" Width="74"/>
+                                <TextBox x:Name="txbRadiantHeight" HorizontalAlignment="Left" Height="26" Margin="156,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <Label x:Name="label2_Copy10" Content="Высота радианта (км)" HorizontalAlignment="Left" Margin="23,41,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label2_Copy7" Content="1/(км^3)" HorizontalAlignment="Left" Margin="471,300,0,0" VerticalAlignment="Top" Width="58"/>
+                                <TextBlock  Text="Провстранственная плотность потока до данной звездной величины"  TextWrapping="Wrap" HorizontalAlignment="Left" Margin="346,241,0,0" VerticalAlignment="Top" Height="54" Width="183"/>
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem Header="Функция светимости" >
+                            <Grid Background="#FFE5E5E5">
+                                <Label x:Name="label5" Content="Вычисление абсолютной звездной величины:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label6" Content="Построение функции светимости:" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txbAbsoluteMagnitude" HorizontalAlignment="Left" Height="26" Margin="349,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="label2_Copy6" Content="Абсолют. звездная величина" HorizontalAlignment="Left" Margin="349,41,0,0" VerticalAlignment="Top"/>
+                                <Button x:Name="CalcAbsoluteMagnitude" Content="Рассчитать" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="75" Click="CalcAbsoluteMagnitude_Click"/>
+                                <StackPanel Width="535" Margin="10,157,0,0" Height="296" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                                    <Button x:Name="CalculateLuminosityChart" Content="Построить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="CalculateLuminosityChart_Click" />
+                                    <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,0"><Run Text="Функция светимости"/></TextBlock>
+                                    <WindowsFormsHost Height="258">
+                                        <dvc:Chart x:Name="chart1"  />
+                                    </WindowsFormsHost>
+                                </StackPanel>
+                                <TextBox x:Name="txbRadiantHeightMagnitude" HorizontalAlignment="Left" Height="26" Margin="139,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <Label x:Name="label2_Copy11" Content="Высота радианта (км)" HorizontalAlignment="Left" Margin="6,41,0,0" VerticalAlignment="Top"/>
+                            </Grid>
                         </TabItem>
                     </TabControl>
 
 
                 </Grid>
             </TabItem>
+            <TabItem Header="Экспорт/Импорт" ></TabItem>
+
         </TabControl>
 
 

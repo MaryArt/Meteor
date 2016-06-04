@@ -9,9 +9,9 @@ G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\Microsoft.Practices
 G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\Bl.pdb
 G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\Dal.pdb
 G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\Model.pdb
-G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\WpfApp.pdb
 G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\EntityFramework.xml
 G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\AutoMapper.xml
 G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\Microsoft.Practices.Prism.Mvvm.xml
 G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
 G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\obj\Debug\ModelingProject.modelprojResolveAssemblyReference.cache
+G:\WORK\METEORS\Diplom\prog\Meteor\ModelingProject\bin\Debug\WpfApp.pdb

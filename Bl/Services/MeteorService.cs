@@ -49,5 +49,39 @@ namespace Bl.Services
             }
             return count;
         }
+
+        public int GetCount(double m, int Z, string source)
+        {
+            var count = Database.Meteors.Find(x => x.AverageMagnitude < m || x.Zenit < Z || x.Source.Equals(source)).Count();
+            return count;
+        }
+
+        public List<Meteor> GetMeteorByPredicate(Func<Meteor, Boolean> predicate)
+        {
+            return Database.Meteors.Find(predicate).ToList();
+        }
+
+        public List<Meteor> GetMeteorsByExpeditionId(int id)
+        {
+            var exp = Database.Expeditions.Find(x => x.Id==id).First();
+            if(exp == null) return new List<Meteor>(); //TODO: надо сказать пользователю что экспедиция не найдена
+            var meteors = new List<Meteor>();
+            foreach (var day in exp.Days)
+            {
+                foreach (var interval in day.Intervals)
+                {
+                    meteors.AddRange(interval.Meteors);
+                }
+            }
+            return meteors;
+            //return Database.Meteors.Find(x => x.Interval.Day.Expedition.Id == id).ToList();
+        }
+
+        public int GetCount(int id, double m, int z, string source)
+        {
+            var meteors = Database.Intervals.Get(id).Meteors;
+            var count = meteors.Count(x => x.AverageMagnitude < m || x.Zenit < z || x.Source.Equals(source));
+            return count;
+        }
     }
 }

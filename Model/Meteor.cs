@@ -42,6 +42,8 @@ namespace Model
 
         public string Source { get; set; }
 
+        public double AverageMagnitude { get; set; }
+
         public Interval Interval { get; set; }
 
         public virtual List<Magnitude> Magnitudes { get; set; }

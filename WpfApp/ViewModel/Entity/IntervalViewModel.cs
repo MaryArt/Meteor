@@ -11,7 +11,7 @@ namespace WpfApp.ViewModel.Entity
         {
             get
             {
-                if (Group != null) return Number + " - " + Group.Name;
+                if (Group != null) return "№" + Number + " (" + Group.Name + ")";
                 return Number + " - ???";
             }
         }

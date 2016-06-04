@@ -24,7 +24,9 @@ namespace Dal.Repositories
 
         public Meteor Get(int id)
         {
-            return _myContext.Meteors.Find(id);
+            var meteor = _myContext.Meteors.Find(id);
+             _myContext.Entry(meteor).Reference(c => c.Interval).Load();
+            return meteor;
         }
 
         public void Create(Meteor state)

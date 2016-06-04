@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:WpfApp"
         xmlns:viewModel="clr-namespace:WpfApp.ViewModel"
         mc:Ignorable="d"
-        Title="NewExpedition" Height="174.244" Width="300">
+        Icon="icon.ico"
+        Title="Создание экспедиции" Height="174.244" Width="300">
     <Window.DataContext>
         <viewModel:NewExpeditionViewModel/>
     </Window.DataContext>

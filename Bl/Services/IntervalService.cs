@@ -22,5 +22,10 @@ namespace Bl.Services
             day.Intervals.ToList().ForEach(i => i = Database.Intervals.Get(i.Id));
             return day.Intervals;
         }
+
+        public Interval GetInterval(int id)
+        {
+            return Database.Intervals.Get(id);
+        }
     }
 }

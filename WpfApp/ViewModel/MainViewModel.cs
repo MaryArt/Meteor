@@ -38,6 +38,7 @@ namespace WpfApp.ViewModel
 
         private ReportViewModel _report;
         private ExpeditionViewModel _selectedExpeditionProcess;
+        private IntervalViewModel _selectedIntervalProcess;
 
         public List<ExpeditionViewModel> Expiditions
         {
@@ -179,6 +180,16 @@ namespace WpfApp.ViewModel
             set
             {
                 _selectedExpeditionProcess = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public IntervalViewModel SelectedIntervalProcess
+        {
+            get { return _selectedIntervalProcess; }
+            set
+            {
+                _selectedIntervalProcess = value;
                 OnPropertyChanged();
             }
         }
