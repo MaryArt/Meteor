@@ -375,9 +375,9 @@ xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
             <TabItem Header="Обработка" >
                 <Grid Background="#FFE5E5E5">
                     <!--Экспедиции-->
-                    <StackPanel Width="255" Margin="10,10,0,0" Height="491" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                    <Grid Width="255" Margin="10,10,0,0" Height="491" HorizontalAlignment="Left" VerticalAlignment="Top" >
                         <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center"><Run Text="Выбор обьекта обработки"/></TextBlock>
-                        <ListBox  ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpeditionProcess, Mode=OneWayToSource}" Height="469" VerticalAlignment="Top">
+                        <ListBox  ItemsSource="{Binding Expiditions}" SelectedItem="{Binding SelectedExpeditionProcess, Mode=OneWayToSource}" Height="474" VerticalAlignment="Bottom">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Expander Header="{Binding Name}" Width="240">
@@ -400,7 +400,7 @@ xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                    </StackPanel>
+                    </Grid>
 
 
                     <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="491" Margin="270,10,0,0" VerticalAlignment="Top" Width="561">
@@ -418,40 +418,48 @@ xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
                                                 <GridViewColumn   Header="Читсое время" DisplayMemberBinding="{Binding ClearTime}"/>
                                                 <GridViewColumn   Header="Все" DisplayMemberBinding="{Binding  GeneralCount}"/>
                                                 <GridViewColumn   Header="Поточные" DisplayMemberBinding="{Binding  RadiantCount}"/>
+                                                <GridViewColumn   Header="Коэф.активности" DisplayMemberBinding="{Binding  I}"/>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
                                 </StackPanel>
 
-                                <StackPanel Width="535" Margin="10,192,0,0" Height="261" HorizontalAlignment="Left" VerticalAlignment="Top" >
-                                    <Button x:Name="CalculateMagnitudeChart" Content="Построить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="CalculateMagnitudeChart_Click"/>
-                                    <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,0"><Run Text="Распределение метеоров по звездным величинам"/></TextBlock>
-                                    <WindowsFormsHost Height="219">
+                                <Grid Width="535" Margin="10,192,0,0" Height="261" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Button Grid.Row="0" x:Name="CalculateMagnitudeChart" Content="Построить (на экспедицию)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Click="CalculateMagnitudeChart_Click"/>
+                                    <Button Grid.Row="0" x:Name="CalculateMagnitudeChartByDay" Content="Построить (на день)" HorizontalAlignment="Center" VerticalAlignment="Top" Width="175"  />
+                                    <Button Grid.Row="0" x:Name="CalculateMagnitudeChartByInterval" Content="Построить (на интервал)" HorizontalAlignment="Right" VerticalAlignment="Top" Width="175"  />
+                                    <TextBlock  Grid.Row="1" Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,0"><Run Text="Распределение метеоров по звездным величинам"/></TextBlock>
+                                    <WindowsFormsHost  Grid.Row="2" Height="219">
                                         <dvc:Chart x:Name="chart"  />
                                     </WindowsFormsHost>
-                                </StackPanel>
+                                </Grid>
 
                             </Grid>
 
                         </TabItem>
                         <TabItem Header="Угловая скорость" >
-                            <Grid Background="#FFE5E5E5">
+                            <Grid Background="#FFE5E5E5" Margin="0,1,0,-1">
                                 <Label x:Name="label" Content="Расчет средней зенитной угловой скорости:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label1" Content="Расчет геоцентрической скорости метеоров:" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label2" Content="Расчет активности метеорного потока:" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label1" Content="Расчет геоцентрической скорости метеоров:" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label2" Content="Расчет активности метеорного потока:" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="txbAngleVelocity" HorizontalAlignment="Left" Height="26" Margin="413,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98"/>
                                 <Label x:Name="label2_Copy1" Content="Угловая скорость" HorizontalAlignment="Left" Margin="305,44,0,0" VerticalAlignment="Top"/>
-                                <Button x:Name="CalcAndleVelocity" Content="Рассчитать" HorizontalAlignment="Left" Margin="40,144,0,0" VerticalAlignment="Top" Width="75" Click="CalcAndleVelocity_Click"/>
-                                <TextBox x:Name="txbGeoCentrVelocity" HorizontalAlignment="Left" Height="26" Margin="413,264,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98"/>
-                                <Label x:Name="label2_Copy2" Content="Геоцентрическая скорость" HorizontalAlignment="Left" Margin="251,264,0,0" VerticalAlignment="Top"/>
-                                <Button x:Name="calcGeoCentrVelocity" Content="Рассчитать" HorizontalAlignment="Left" Margin="40,270,0,0" VerticalAlignment="Top" Width="75" Click="CalcGeoCentrVelocity_Click"/>
-                                <TextBox x:Name="txbRadiantDelta" HorizontalAlignment="Left" Height="26" Margin="180,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                                <Label x:Name="label2_Copy3" Content="Склонение радианта" HorizontalAlignment="Left" Margin="40,359,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="txbFrequency" HorizontalAlignment="Left" Height="26" Margin="413,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                                <Label x:Name="label2_Copy4" Content="Активность" HorizontalAlignment="Left" Margin="339,359,0,0" VerticalAlignment="Top"/>
-                                <Button x:Name="CalcFrequency" Content="Рассчитать" HorizontalAlignment="Left" Margin="40,421,0,0" VerticalAlignment="Top" Width="75" Click="CalcFrequency_Click"/>
-                                <TextBox x:Name="txbRadiantHourAngle" HorizontalAlignment="Left" Height="26" Margin="180,390,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                                <Label x:Name="label2_Copy5" Content="Часовой угол радианта" HorizontalAlignment="Left" Margin="40,390,0,0" VerticalAlignment="Top"/>
+                                <Button x:Name="CalcAndleVelocity" Content="Рассчитать" HorizontalAlignment="Left" Margin="148,145,0,0" VerticalAlignment="Top" Width="75" Click="CalcAndleVelocity_Click"/>
+                                <TextBox x:Name="txbGeoCentrVelocity" HorizontalAlignment="Left" Height="26" Margin="413,218,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98"/>
+                                <Label x:Name="label2_Copy2" Content="Геоцентрическая скорость" HorizontalAlignment="Left" Margin="251,218,0,0" VerticalAlignment="Top"/>
+                                <Button x:Name="calcGeoCentrVelocity" Content="Рассчитать" HorizontalAlignment="Left" Margin="148,224,0,0" VerticalAlignment="Top" Width="75" Click="CalcGeoCentrVelocity_Click"/>
+                                <TextBox x:Name="txbRadiantDelta" HorizontalAlignment="Left" Height="26" Margin="150,301,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="label2_Copy3" Content="Склонение радианта" HorizontalAlignment="Left" Margin="21,301,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txbFrequency" HorizontalAlignment="Left" Height="152" Margin="275,301,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270"/>
+                                <Label x:Name="label2_Copy4" Content="Зенитные часовые числа" HorizontalAlignment="Left" Margin="331,270,0,0" VerticalAlignment="Top"/>
+                                <Button x:Name="CalcFrequency" Content="Рассчитать" HorizontalAlignment="Left" Margin="148,433,0,0" VerticalAlignment="Top" Width="75" Click="CalcFrequency_Click"/>
+                                <TextBox x:Name="txbRadiantHourAngle" HorizontalAlignment="Left" Height="26" Margin="150,332,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="label2_Copy5" Content="Часовой угол радианта" HorizontalAlignment="Left" Margin="10,332,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="txbMagnitudeV" HorizontalAlignment="Left" Height="25" Margin="148,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
                                 <TextBox x:Name="txbZenitV" HorizontalAlignment="Left" Height="25" Margin="148,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
                                 <ComboBox  x:Name="txbSourceV" Margin="148,44,273,394" ItemsSource="{Binding Collections.Constellations}"/>
@@ -459,43 +467,37 @@ xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
                                 <Label  Content="До звезд.вел" HorizontalAlignment="Left" Margin="63,74,0,0" VerticalAlignment="Top" Height="25"/>
                                 <Label  Content="Зенитное расст. (°)" HorizontalAlignment="Left" Margin="31,105,0,0" VerticalAlignment="Top" Height="25"/>
                                 <Label x:Name="label2_Copy8" Content="°/c" HorizontalAlignment="Left" Margin="516,44,0,0" VerticalAlignment="Top" Width="29"/>
-                                <Label x:Name="label2_Copy" Content="км/c" HorizontalAlignment="Left" Margin="516,264,0,0" VerticalAlignment="Top" Width="39"/>
+                                <Label x:Name="label2_Copy" Content="км/c" HorizontalAlignment="Left" Margin="516,218,0,0" VerticalAlignment="Top" Width="39"/>
                             </Grid>
                         </TabItem>
 
                         <TabItem Header="Плотность потока">
                             <Grid Background="#FFE5E5E5">
-                                <TextBox x:Name="txbMagnitude" HorizontalAlignment="Left" Height="25" Margin="156,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
-                                <TextBox x:Name="txbZenit" HorizontalAlignment="Left" Height="25" Margin="156,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
-                                <ComboBox  x:Name="txbSource" Margin="156,73,265,365" ItemsSource="{Binding Collections.Constellations}"/>
-                                <Label  Content="Поток" HorizontalAlignment="Left" Margin="107,73,0,0" VerticalAlignment="Top" Height="25"/>
-                                <Label  Content="До звезд.вел" HorizontalAlignment="Left" Margin="71,103,0,0" VerticalAlignment="Top" Height="25"/>
-                                <Label  Content="Зенитное расст.  (°)" HorizontalAlignment="Left" Margin="36,134,0,0" VerticalAlignment="Top" Height="25"/>
-                                <Button x:Name="CalculateDencityOfMeteorShower" Content="Раcсчитать" HorizontalAlignment="Left" Margin="107,164,0,0" VerticalAlignment="Top" Width="75" Click="CalculateDencityOfMeteorShower_Click" Height="20"/>
-                                <TextBox x:Name="DencityResult" HorizontalAlignment="Left" Height="28" Margin="346,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                                <TextBlock  Text="Плотность потока до данной звездной величины"  TextWrapping="Wrap" HorizontalAlignment="Left" Margin="346,82,0,0" VerticalAlignment="Top" Height="40" Width="165"/>
-                                <Label x:Name="label3" Content="Расчет пространственной плотности метеорного роя до данной звездной величины:" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label7" Content="Расчет плотности метеорного потока:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="txbDistanceToEarthCentr" HorizontalAlignment="Left" Height="26" Margin="156,269,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                                <TextBlock  Text="Расстояние от центра Земли до метеорной зоны"  TextWrapping="Wrap" HorizontalAlignment="Left" Margin="24,256,0,0" VerticalAlignment="Top" Height="45" Width="127"/>
+                                <TextBox x:Name="txbMagnitude" HorizontalAlignment="Left" Height="25" Margin="254,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <TextBox x:Name="txbZenit" HorizontalAlignment="Left" Height="25" Margin="254,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <ComboBox  x:Name="txbSource" Margin="254,73,167,365" ItemsSource="{Binding Collections.Constellations}"/>
+                                <Label  Content="Поток" HorizontalAlignment="Left" Margin="188,73,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Label  Content="Граница звездной величины" HorizontalAlignment="Left" Margin="63,103,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Label  Content="Граница зенитного расстояния (°)" HorizontalAlignment="Left" Margin="36,134,0,0" VerticalAlignment="Top" Height="25"/>
+                                <TextBox x:Name="DencityResult" HorizontalAlignment="Left" Height="28" Margin="254,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <TextBlock  Text="Плотность потока (интенсивность) до данной звездной величины"  TextWrapping="Wrap" HorizontalAlignment="Left" Margin="36,228,0,0" VerticalAlignment="Top" Height="40" Width="196"/>
 
-                                <TextBox x:Name="txbSpaceDencity" HorizontalAlignment="Left" Height="26" Margin="346,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                                <Button x:Name="CalcSpaceDencity" Content="Рассчитать" HorizontalAlignment="Left" Margin="107,331,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.493,0.65" Click="CalcSpaceDencity_Click"/>
-                                <Label x:Name="label2_Copy9" Content="1/(км^2*ч)" HorizontalAlignment="Left" Margin="471,127,0,0" VerticalAlignment="Top" Width="74"/>
-                                <TextBox x:Name="txbRadiantHeight" HorizontalAlignment="Left" Height="26" Margin="156,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
-                                <Label x:Name="label2_Copy10" Content="Высота радианта (км)" HorizontalAlignment="Left" Margin="23,41,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label2_Copy7" Content="1/(км^3)" HorizontalAlignment="Left" Margin="471,300,0,0" VerticalAlignment="Top" Width="58"/>
-                                <TextBlock  Text="Провстранственная плотность потока до данной звездной величины"  TextWrapping="Wrap" HorizontalAlignment="Left" Margin="346,241,0,0" VerticalAlignment="Top" Height="54" Width="183"/>
+                                <TextBox x:Name="txbSpaceDencity" HorizontalAlignment="Left" Height="26" Margin="254,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Button x:Name="CalcDencity" Content="Рассчитать" HorizontalAlignment="Left" Margin="254,177,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.493,0.65" Click="CalculateDencity_Click"/>
+                                <Label x:Name="label2_Copy9" Content="1/(км^2*ч)" HorizontalAlignment="Left" Margin="379,228,0,0" VerticalAlignment="Top" Width="74"/>
+                                <TextBox x:Name="txbRadiantHeight" HorizontalAlignment="Left" Height="26" Margin="254,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
+                                <Label x:Name="label2_Copy10" Content="Высота метеорной зоны (км)" HorizontalAlignment="Left" Margin="63,41,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label2_Copy7" Content="1/(км^3)" HorizontalAlignment="Left" Margin="379,300,0,0" VerticalAlignment="Top" Width="58"/>
+                                <TextBlock  Text="Пространственная плотность потока до данной звездной величины"  TextWrapping="Wrap" HorizontalAlignment="Left" Margin="36,300,0,0" VerticalAlignment="Top" Height="54" Width="213"/>
                             </Grid>
                         </TabItem>
 
                         <TabItem Header="Функция светимости" >
                             <Grid Background="#FFE5E5E5">
                                 <Label x:Name="label5" Content="Вычисление абсолютной звездной величины:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label6" Content="Построение функции светимости:" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="txbAbsoluteMagnitude" HorizontalAlignment="Left" Height="26" Margin="349,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                                 <Label x:Name="label2_Copy6" Content="Абсолют. звездная величина" HorizontalAlignment="Left" Margin="349,41,0,0" VerticalAlignment="Top"/>
-                                <Button x:Name="CalcAbsoluteMagnitude" Content="Рассчитать" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="75" Click="CalcAbsoluteMagnitude_Click"/>
+                                <Button x:Name="CalcAbsoluteMagnitude" Content="Рассчитать" HorizontalAlignment="Left" Margin="184,111,0,0" VerticalAlignment="Top" Width="75" Click="CalcAbsoluteMagnitude_Click"/>
                                 <StackPanel Width="535" Margin="10,157,0,0" Height="296" HorizontalAlignment="Left" VerticalAlignment="Top" >
                                     <Button x:Name="CalculateLuminosityChart" Content="Построить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="CalculateLuminosityChart_Click" />
                                     <TextBlock  Width="Auto" Height="17" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,0"><Run Text="Функция светимости"/></TextBlock>
@@ -503,8 +505,10 @@ xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
                                         <dvc:Chart x:Name="chart1"  />
                                     </WindowsFormsHost>
                                 </StackPanel>
-                                <TextBox x:Name="txbRadiantHeightMagnitude" HorizontalAlignment="Left" Height="26" Margin="139,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134"/>
-                                <Label x:Name="label2_Copy11" Content="Высота радианта (км)" HorizontalAlignment="Left" Margin="6,41,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txbRadiantHeightMagnitude" HorizontalAlignment="Left" Height="26" Margin="184,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="label2_Copy11" Content="Высота метеорной зоны (км)" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txbMagnitudeForCalcAbsolute" HorizontalAlignment="Left" Height="26" Margin="184,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                <Label x:Name="label2_Copy12" Content="Звездная величина" HorizontalAlignment="Left" Margin="63,72,0,0" VerticalAlignment="Top"/>
                             </Grid>
                         </TabItem>
                     </TabControl>

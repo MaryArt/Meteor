@@ -12,6 +12,12 @@ namespace Bl
 
         public int RadiantCount { get; set; }
 
+        public double I
+        {
+            get { return RadiantCount/(GeneralCount*ClearTime); }
+            set { }
+        }
+
         /// <summary>
         /// доля облачности в поле зрения
         /// </summary>

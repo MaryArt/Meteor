@@ -44,6 +44,12 @@ namespace WpfApp
             chart.Series["Series1"].ChartArea = "Default";
             chart.Series["Series1"].ChartType = SeriesChartType.Line;
 
+            chart1.ChartAreas.Add(new ChartArea("Default"));
+
+            chart1.Series.Add(new Series("Series1"));
+            chart1.Series["Series1"].ChartArea = "Default";
+            chart1.Series["Series1"].ChartType = SeriesChartType.Point;
+
             AutoMapperConfig.RegisterMappings();
             Load();
         }
@@ -119,7 +125,7 @@ namespace WpfApp
 
         }
 
-        private void CalculateDencityOfMeteorShower_Click(object sender, RoutedEventArgs e)
+        private void CalculateDencity_Click(object sender, RoutedEventArgs e)
         {
             var m = 0;
             var Z = 0;
@@ -128,7 +134,7 @@ namespace WpfApp
             if (!ConvertToNumber(this.txbRadiantHeight.Text, out h)) return;
             if (!ConvertToNumber(this.txbZenit.Text, out Z)) return;
             //var source = Convert.ToString(txbSource.SelectedItem);
-            var source = "per";
+            var source = "per"; //TODO: сделать нормальный ввод потока
             var mainModel = (MainViewModel)this.DataContext;
             if (mainModel.SelectedExpeditionProcess == null)
             {
@@ -139,6 +145,15 @@ namespace WpfApp
             var dencity = _process.GetDencityOfMeteorShower(id, h, m, Z, source);
             _process.Dencity = dencity;
             DencityResult.Text = Convert.ToString(dencity);
+
+            //пространственная плотность
+            if (_process.Dencity == 0 || _process.GeoCentrVelocityKmCh == 0)
+            {
+                MessageBox.Show(
+                    "Для расчета пространственной плотности, требуется расчитать плотность потока и геоцентрическую скорость");
+            }
+            var ro = _process.GetSpaceDencity(_process.Dencity, _process.GeoCentrVelocityKmCh);
+            txbSpaceDencity.Text = ro.ToString();
         }
 
         private void CalcAndleVelocity_Click(object sender, RoutedEventArgs e)
@@ -191,18 +206,7 @@ namespace WpfApp
             txbGeoCentrVelocity.Text = v.ToString();
         }
 
-        private void CalcSpaceDencity_Click(object sender, RoutedEventArgs e)
-        {
-            var r = 0;
-            if (!ConvertToNumber(txbDistanceToEarthCentr.Text, out r)) return;
-            if (_process.Dencity == 0 || _process.GeoCentrVelocityKmCh == 0)
-            {
-                MessageBox.Show(
-                    "Для расчета пространственной плотности, требуется расчитать плотность потока и геоцентрическую скорость");
-            }
-            var ro = _process.GetSpaceDencity(_process.Dencity, _process.GeoCentrVelocityKmCh);
-            txbSpaceDencity.Text = ro.ToString();
-        }
+
 
         /// <summary>
         /// Расчет активности метеорного потока
@@ -223,9 +227,23 @@ namespace WpfApp
             double t = 0;
             if (!ConvertToNumber(this.txbRadiantDelta.Text, out d)) return;
             if (!ConvertToNumber(this.txbRadiantHourAngle.Text, out t)) return;
+            txbFrequency.Text = "";
+            foreach (var day in _expeditionService.Get(id).Days)
+            {
+                txbFrequency.Text += day.Date.ToShortDateString() + ":";
+                var frequencies = _process.GetFrequencyByDay(day.Id, d, t);
+                int i = 0;
+                foreach (var frequency in frequencies)
+                {
 
-            var n = _process.GetFrequency(id, d, t);
-            txbFrequency.Text = n.ToString();
+                    txbFrequency.Text += Environment.NewLine;
+                    var str = "№" + day.Intervals.ToList()[i].Number + " (" + day.Intervals.ToList()[i].Group.Name + ") - ";
+                    txbFrequency.Text += str + frequency.ToString();
+                    i++;
+                }
+                txbFrequency.Text += Environment.NewLine;
+            }
+            
         }
 
         private void CalcAbsoluteMagnitude_Click(object sender, RoutedEventArgs e)
@@ -240,8 +258,10 @@ namespace WpfApp
 
             double m0 = 0;
             double h = 0;
+            double m = 0;
             if (! ConvertToNumber(txbRadiantHeightMagnitude.Text, out h)) return;
-            m0 = _process.GetAbsoluteMagnitude(id, h);
+            if (!ConvertToNumber(txbMagnitudeForCalcAbsolute.Text, out m)) return;
+            m0 = _process.GetAbsoluteMagnitude(id, h, m);
             txbAbsoluteMagnitude.Text = m0.ToString();
         }
 
@@ -254,14 +274,15 @@ namespace WpfApp
                 return;
             }
             var id = mainModel.SelectedExpeditionProcess.Id;
-
+            double h = 0;
+            if (!ConvertToNumber(txbRadiantHeightMagnitude.Text, out h)) return;
             // добавим данные линии
             int[] axisXData;
-            int[] axisYData;
+            double[] axisYData;
 
-            _process.CalculateMagnitudeChart(id, out axisXData, out axisYData);
-            chart.Series["Series1"].Points.Clear();
-            chart.Series["Series1"].Points.DataBindXY(axisXData, axisYData);
+            _process.CalculateLuminosityChart(id, h , out axisXData, out axisYData);
+            chart1.Series["Series1"].Points.Clear();
+            chart1.Series["Series1"].Points.DataBindXY(axisXData, axisYData);
         }
     }
 

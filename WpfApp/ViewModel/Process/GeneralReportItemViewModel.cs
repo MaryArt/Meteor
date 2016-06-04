@@ -10,7 +10,7 @@ namespace WpfApp.ViewModel.Process
     {
         public DateTime Date { get; set; }
 
-        public string DateStr => Date.Day + "-" + (Date.AddDays(1).ToShortDateString());
+        public string DateStr => Date != DateTime.MinValue? Date.Day + "-" + (Date.AddDays(1).ToShortDateString()): "Всего";
 
         public double ClearTime { get; set; }
 

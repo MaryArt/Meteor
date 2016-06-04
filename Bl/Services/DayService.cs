@@ -42,5 +42,10 @@ namespace Bl.Services
             }
             return clearTime;
         }
+
+        public Day Get(int dayId)
+        {
+            return Database.Days.Get(dayId);
+        }
     }
 }
